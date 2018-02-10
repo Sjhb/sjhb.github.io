@@ -12,7 +12,7 @@
     
     <title>
         
-            全局监听处理Promise拒绝 | 
+            React学习笔记五：WebPack+React | 
         
         王欢的个人博客
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="王欢">
     <meta name="description" itemprop="description" content="前端不止是页面">
-    <meta name="keywords" content=",web">
+    <meta name="keywords" content="">
 
     <!-- Site Verification -->
     
@@ -65,18 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="全局监听处理Promise拒绝 | 王欢的个人博客">
+    <meta property="og:title" content="React学习笔记五：WebPack+React | 王欢的个人博客">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="前端不止是页面">
-    <meta property="og:article:tag" content="web"> 
+    
 
     
-        <meta property="article:published_time" content="8月 04, 2017" />
-        <meta property="article:modified_time" content="1月 20, 2018" />
+        <meta property="article:published_time" content="2月 10, 2018" />
+        <meta property="article:modified_time" content="2月 10, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="全局监听处理Promise拒绝 | 王欢的个人博客">
+    <meta name="twitter:title" content="React学习笔记五：WebPack+React | 王欢的个人博客">
     <meta name="twitter:description" content="前端不止是页面">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,7 +84,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/08/04/promise/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/02/10/react5/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -110,10 +110,10 @@
         },
         "description": "前端不仅仅只是页面"
     },
-    "headline": "全局监听处理Promise拒绝",
-    "url": "http://yoursite.com/2017/08/04/promise/index.html",
-    "datePublished": "8月 04, 2017",
-    "dateModified": "1月 20, 2018",
+    "headline": "React学习笔记五：WebPack+React",
+    "url": "http://yoursite.com/2018/02/10/react5/index.html",
+    "datePublished": "2月 10, 2018",
+    "dateModified": "2月 10, 2018",
     "description": "前端不止是页面",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -335,7 +335,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要监听"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要监听</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Node-环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">Node 环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#综合例子：完整展现Node监听过程"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">综合例子：完整展现Node监听过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器环境"><span class="post-toc-number">3.</span> <span class="post-toc-text">浏览器环境</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置流程"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Webpack配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">Webpack配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初始化文件夹，安装webpack依赖"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">初始化文件夹，安装webpack依赖</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备开发目录"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">准备开发目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备配置文件：webpack-dev-js"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">准备配置文件：webpack.dev.js</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Webpack加入React配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">Webpack加入React配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加React、React-Dom包以及babel支持"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">添加React、React-Dom包以及babel支持</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更新webpack-dev-js文件，使其支持babel以及热模块更新"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">更新webpack.dev.js文件，使其支持babel以及热模块更新</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加-babelrc文件，使应用支持es6语法、jsx语法以及loader配置"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">添加.babelrc文件，使应用支持es6语法、jsx语法以及loader配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模版文件index-html以及入口文件改造"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">模版文件index.html以及入口文件改造</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#完成配置文件"><span class="post-toc-number">4.</span> <span class="post-toc-text">完成配置文件</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -373,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                全局监听处理Promise拒绝
+                React学习笔记五：WebPack+React
             </p>
         </div>
 
@@ -392,7 +392,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>王欢</strong>
-        <span>8月 04, 2017</span>
+        <span>2月 10, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -416,7 +416,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/web/">web</a>
+        
     </ul>
     
 
@@ -432,7 +432,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=全局监听处理Promise拒绝&url=http://yoursite.com/2017/08/04/promise/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=React学习笔记五：WebPack+React&url=http://yoursite.com/2018/02/10/react5/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -441,7 +441,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=全局监听处理Promise拒绝&url=http://yoursite.com/2017/08/04/promise/index.html&via=王欢" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=React学习笔记五：WebPack+React&url=http://yoursite.com/2018/02/10/react5/index.html&via=王欢" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/04/promise/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/10/react5/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/04/promise/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/10/react5/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -483,129 +483,222 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="为什么要监听"><a href="#为什么要监听" class="headerlink" title="为什么要监听"></a>为什么要监听</h2><p>当Promise使用越来越广泛的时候，promise仍然存在着以下问题：</p>
+        <h3 id="配置流程"><a href="#配置流程" class="headerlink" title="配置流程"></a>配置流程</h3><ol>
+<li>配置Webpack开发环境</li>
+<li>加入React</li>
+</ol>
+<h3 id="Webpack配置"><a href="#Webpack配置" class="headerlink" title="Webpack配置"></a>Webpack配置</h3><p>这里只是开发使用，不会配置得如同正式那样复杂。</p>
+<h4 id="初始化文件夹，安装webpack依赖"><a href="#初始化文件夹，安装webpack依赖" class="headerlink" title="初始化文件夹，安装webpack依赖"></a>初始化文件夹，安装webpack依赖</h4><pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> init react-learn
+$ <span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack
+</code></pre>
+<h4 id="准备开发目录"><a href="#准备开发目录" class="headerlink" title="准备开发目录"></a>准备开发目录</h4><p>+–react-learn\<br>|+–config\<br>|—-webpack.base.config.js\<br>|+–node_modules\<br>|+–src\<br>|—-index.html\<br>|—-index.js\<br>|–package.json</p>
+<h4 id="准备配置文件：webpack-dev-js"><a href="#准备配置文件：webpack-dev-js" class="headerlink" title="准备配置文件：webpack.dev.js"></a>准备配置文件：webpack.dev.js</h4><ol>
+<li>加入插件：<code>html-webpack-plugin</code>,<code>clean-webpack-plugin</code>,<code>webpack-dev-server</code></li>
+</ol>
+<pre class=" language-dash"><code class="language-dash">$ npm install --save-dev clean-webpack-plugin clean-webpack-plugin webpack-dev-server
+</code></pre>
 <ol>
-<li><p>当一个Promise在没有添加拒绝处理程序（catch/reject）的时候执行了拒绝（reject）操作，则js不会提示任何的失败信息</p>
-<blockquote>
-<p>Node 8.0 版本已经有提示警告信息了,如下</p>
-<p>UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): rejected</p>
-<p>[DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.</p>
-<p>PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 1)</p>
-<p>大意为：捕获未处理拒绝/在以后版本中未被处理的Promise拒绝将会直接导致node线程结束/拒绝已经处理了</p>
-<p>经过测试，Firefox54.0.1和chrome60.0.x已经可以报错了，</p>
-</blockquote>
-<p>​</p>
+<li><p>配置入口文件、输出文件路径、上下文、解析</p>
+<pre class=" language-javascript"><code class="language-javascript">context<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ app<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.js'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span><span class="token punctuation">,</span>
+ publicPath<span class="token punctuation">:</span> <span class="token string">'/'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'jsx'</span><span class="token punctuation">,</span> <span class="token string">'json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ <span class="token string">'@'</span><span class="token punctuation">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 </li>
-<li><p>当一个Promise执行了拒绝（reject）行为，Promise的特性导致我们在开发的时候无法得知拒绝（reject）行为进行的时间，也不知道是否被处理</p>
+<li><p>插件配置</p>
 </li>
 </ol>
-<h2 id="Node-环境"><a href="#Node-环境" class="headerlink" title="Node 环境"></a>Node 环境</h2><p>在Node.js中，Promise拒绝（reject）时会触发process对象的两个事件</p>
+<pre class=" language-javascript"><code class="language-javascript">plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">{</span>
+        title<span class="token punctuation">:</span> <span class="token string">'[name].bundle.js'</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
+        template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        hash<span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>NamedModulesPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<ol>
+<li>开发服务起配置</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    contentBase<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+    port<span class="token punctuation">:</span> <span class="token string">'8082'</span><span class="token punctuation">,</span>
+    historyApiFallback<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    hot<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="Webpack加入React配置"><a href="#Webpack加入React配置" class="headerlink" title="Webpack加入React配置"></a>Webpack加入React配置</h3><h4 id="添加React、React-Dom包以及babel支持"><a href="#添加React、React-Dom包以及babel支持" class="headerlink" title="添加React、React-Dom包以及babel支持"></a>添加React、React-Dom包以及babel支持</h4><pre class=" language-dash"><code class="language-dash">npm install --save react react-dom
+npm install --save-dev babel-cli babel-loader babel-preset-es2015 babel-preset-react react-hot-loader
+</code></pre>
+<h4 id="更新webpack-dev-js文件，使其支持babel以及热模块更新"><a href="#更新webpack-dev-js文件，使其支持babel以及热模块更新" class="headerlink" title="更新webpack.dev.js文件，使其支持babel以及热模块更新"></a>更新<code>webpack.dev.js</code>文件，使其支持babel以及热模块更新</h4><ol>
+<li>更新入口文件配置</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript">entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    app<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token string">'react-hot-loader/patch'</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// 开启 React 代码的模块热替换(HMR)</span>
+        <span class="token string">'webpack-dev-server/client?http://localhost:8082'</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// 为 webpack-dev-server 的环境打包代码</span>
+        <span class="token comment" spellcheck="true">// 然后连接到指定服务器域名与端口，可以换成本机ip</span>
+        <span class="token string">'webpack/hot/only-dev-server'</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// 为热替换(HMR)打包好代码</span>
+        <span class="token comment" spellcheck="true">// only- 意味着只有成功更新运行代码才会执行热替换(HMR)</span>
+        path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.js'</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// 入口文件</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol>
+<li>配置loader</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            test<span class="token punctuation">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+            use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'babel-loader'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="添加-babelrc文件，使应用支持es6语法、jsx语法以及loader配置"><a href="#添加-babelrc文件，使应用支持es6语法、jsx语法以及loader配置" class="headerlink" title="添加.babelrc文件，使应用支持es6语法、jsx语法以及loader配置"></a>添加.babelrc文件，使应用支持es6语法、jsx语法以及loader配置</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"presets"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">"es2015"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token property">"modules"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"react"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"plugins"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"react-hot-loader/babel"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="模版文件index-html以及入口文件改造"><a href="#模版文件index-html以及入口文件改造" class="headerlink" title="模版文件index.html以及入口文件改造"></a>模版文件index.html以及入口文件改造</h4><p>根据我们的配置，webpack会使用src目录下的index.html作为模版生成打包后的主文件，并把index.js作为js入口文件，我们需要改造它们使其支持热模块更新</p>
 <ul>
-<li><p>unhandledRejection ： 在事件队列中，当Promise被拒绝，没有提供拒绝处理程序或者拒绝未被及时处理。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> rejected
-rejected <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'rejected'</span><span class="token punctuation">)</span>
-
-process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'unhandledRejection'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>reason<span class="token punctuation">,</span> promise<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>rejected <span class="token operator">===</span> promise<span class="token punctuation">)</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">// 结果：</span>
-<span class="token comment" spellcheck="true">// true</span>
-<span class="token comment" spellcheck="true">//rejected</span>
-</code></pre>
-<p>注册unhandledRejection时，事件处理函数接受两个参数：拒绝信息reason和Promise对象</p>
-</li>
-<li><p>rejectionHandled ：在事件队列中，当Promise被拒绝，在被拒绝处理程序处理时触发。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> rejected
-rejected <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'rejected'</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
- rejected<span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>reason <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'rejectionHandled'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>promise<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>rejected <span class="token operator">===</span> promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 结果：</span>
-<span class="token comment" spellcheck="true">// true</span>
-<span class="token comment" spellcheck="true">//rejected</span>
-</code></pre>
-<p>注册rejectionHandled时,事件处理函数接受一个参数：Promise对象</p>
-<blockquote>
-<p>我们可以拿到对应的Promise对象，做一些处理</p>
-</blockquote>
-</li>
+<li>index.html</li>
 </ul>
-<h3 id="综合例子：完整展现Node监听过程"><a href="#综合例子：完整展现Node监听过程" class="headerlink" title="综合例子：完整展现Node监听过程"></a>综合例子：完整展现Node监听过程</h3><pre class=" language-javascript"><code class="language-javascript">process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'unhandledRejection'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>reason<span class="token punctuation">,</span> promise<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'unhandledRejection:'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'----------------------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'rejectionHandled'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>promise<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'rejectionHandled:'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'----------------------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> rejected <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'rejected'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  rejected<span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>reason <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 输出结果</span>
-<span class="token comment" spellcheck="true">// unhandledRejection:</span>
-<span class="token comment" spellcheck="true">// Promise { &lt;rejected> 'rejected' }</span>
-<span class="token comment" spellcheck="true">// rejected</span>
-<span class="token comment" spellcheck="true">// ----------------------</span>
-<span class="token comment" spellcheck="true">// rejectionHandled:</span>
-<span class="token comment" spellcheck="true">// Promise { &lt;rejected> 'rejected' }</span>
-<span class="token comment" spellcheck="true">// ----------------------</span>
-<span class="token comment" spellcheck="true">// rejected</span>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>CN<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ie<span class="token punctuation">=</span>edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>React<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre>
-<p>拒绝发生未被处理时，触发unhandledRejection ，之后注册了拒绝处理函数又触发rejectionHandled</p>
-<h2 id="浏览器环境"><a href="#浏览器环境" class="headerlink" title="浏览器环境"></a>浏览器环境</h2><p>与Node环境类似，两个事件是在window对象上触发的</p>
 <ul>
-<li><p>unhandledRejection ： 在事件队列中，当Promise被拒绝，没有提供拒绝处理程序或者拒绝未被及时处理。</p>
-</li>
-<li><p>rejectionHandled： 在事件队列中，当Promise被拒绝，在被拒绝处理程序调用时触发。</p>
-</li>
+<li>index.js</li>
 </ul>
-<blockquote>
-<p>这里接受event对象，与Node环境不同</p>
-<p>也可以使用addEventListener方式</p>
-</blockquote>
-<pre class=" language-javascript"><code class="language-javascript">   window<span class="token punctuation">.</span>onunhandledrejection <span class="token operator">=</span> event <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>type<span class="token punctuation">)</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>reason<span class="token punctuation">)</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>promise <span class="token operator">===</span> rsss<span class="token punctuation">)</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'---------------------'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    window<span class="token punctuation">.</span>onrejectionhandled <span class="token operator">=</span> event <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>type<span class="token punctuation">)</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>reason<span class="token punctuation">)</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>promise <span class="token operator">===</span> rsss<span class="token punctuation">)</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'---------------------'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> rejected <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">rejected</span><span class="token punctuation">(</span><span class="token string">'rejected'</span><span class="token punctuation">)</span>
-    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      rejected<span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token comment" spellcheck="true">// 输出结果：</span>
-     <span class="token comment" spellcheck="true">//  unhandledrejection</span>
-      <span class="token comment" spellcheck="true">//  rejected</span>
-      <span class="token comment" spellcheck="true">//  true</span>
-      <span class="token comment" spellcheck="true">//  ---------------------</span>
-      <span class="token comment" spellcheck="true">//  Uncaught (in promise) rsss // 这里是报错信息 </span>
-    <span class="token comment" spellcheck="true">//  rejected  //（拒绝处理了）</span>
-      <span class="token comment" spellcheck="true">//  rejectionhandled</span>
-      <span class="token comment" spellcheck="true">//  rejected</span>
-      <span class="token comment" spellcheck="true">//  true</span>
-      <span class="token comment" spellcheck="true">//  ---------------------</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppContainer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-hot-loader'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App'</span>
+
+<span class="token comment" spellcheck="true">// 封装 render 函数</span>
+<span class="token keyword">const</span> render <span class="token operator">=</span> <span class="token punctuation">(</span>App<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>AppContainer<span class="token operator">></span>
+      <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>AppContainer<span class="token operator">></span><span class="token punctuation">,</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>module<span class="token punctuation">.</span>hot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    module<span class="token punctuation">.</span>hot<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token string">'./App'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">render</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>  ​</p>
+<p>这时候程序已经成能够正常跑起来了</p>
+<h3 id="完成配置文件"><a href="#完成配置文件" class="headerlink" title="完成配置文件"></a>完成配置文件</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> CleanWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> resolve <span class="token punctuation">(</span>dir<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> dir<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  context<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    app<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'react-hot-loader/patch'</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// 开启 React 代码的模块热替换(HMR)</span>
+      <span class="token string">'webpack-dev-server/client?http://localhost:8082'</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// 为 webpack-dev-server 的环境打包代码</span>
+      <span class="token comment" spellcheck="true">// 然后连接到指定服务器域名与端口，可以换成本机ip</span>
+      <span class="token string">'webpack/hot/only-dev-server'</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// 为热替换(HMR)打包好代码</span>
+      <span class="token comment" spellcheck="true">// only- 意味着只有成功更新运行代码才会执行热替换(HMR)</span>
+      path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.js'</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true">// 入口文件</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span><span class="token punctuation">,</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'/'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'jsx'</span><span class="token punctuation">,</span> <span class="token string">'json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">'@'</span><span class="token punctuation">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'babel-loader'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span> <span class="token punctuation">(</span>
+      <span class="token punctuation">{</span>
+        title<span class="token punctuation">:</span> <span class="token string">'[name].bundle.js'</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
+        template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        hash<span class="token punctuation">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>NamedModulesPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    contentBase<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+    port<span class="token punctuation">:</span> <span class="token string">'8082'</span><span class="token punctuation">,</span>
+    historyApiFallback<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    hot<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
     
 
@@ -625,21 +718,13 @@ process<span class="token punctuation">.</span><span class="token function">on</
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/11/drag/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/07/07/flex/" id="post_nav-older" class="next-content">
+        <a href="/2018/02/03/react4/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
