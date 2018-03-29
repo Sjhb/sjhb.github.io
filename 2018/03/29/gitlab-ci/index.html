@@ -335,7 +335,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#持续集成"><span class="post-toc-number">1.</span> <span class="post-toc-text">持续集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gitlab-ci"><span class="post-toc-number">2.</span> <span class="post-toc-text">Gitlab-ci</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#持续集成"><span class="post-toc-number">1.</span> <span class="post-toc-text">持续集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gitlab-Ci"><span class="post-toc-number">2.</span> <span class="post-toc-text">Gitlab-Ci</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#建一个仓库，我这里取名为test-auto-deploy"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">建一个仓库，我这里取名为test-auto-deploy</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开启CI-CD功能，具体在setting-gt-General里的permissions中"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">开启CI/CD功能，具体在setting -&gt; General里的permissions中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置CI-CD。在仓库根目录中新建一个名为-gitlab-ci-yml文件，Gitlab将会自动识别这个文件。"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">配置CI/CD。在仓库根目录中新建一个名为.gitlab-ci.yml文件，Gitlab将会自动识别这个文件。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的和可公用的，即：Specific-Runners-和-Shared-Runners。"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的和可公用的，即：Specific Runners 和 Shared Runners。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -486,18 +486,9 @@
         <h3 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h3><p>前端工程化中，持续集成是非常重要的一块。具体可以看我之前的文章：<a href="http://blog.excute.cn/2018/03/21/autodeploy/" target="_blank" rel="noopener">关于前端持续集成的一些理解</a></p>
 <p><img src="/images/gitlab-ci-2.png" alt=""></p>
 <p>这里就不再赘述了</p>
-<h3 id="Gitlab-ci"><a href="#Gitlab-ci" class="headerlink" title="Gitlab-ci"></a>Gitlab-ci</h3><p>Gitlab就是一个基于 Web 的 Git 仓库管理工具，从9.0版本开始提供持续集成功能（CI/CD），代码版本控制加上持续集成功能非常好用，下面具体讨论一下怎么做（假设已经配置好Gitlab）。</p>
-<ol>
-<li><p>建一个仓库，我这里取名为<code>test-auto-deploy</code></p>
-</li>
-<li><p>开启CI/CD功能，具体在<code>setting -&gt; General</code>里的<code>permissions</code>中</p>
-</li>
-</ol>
-<p><img src="/images/gitlab-ci-1.jpg" alt=""></p>
-<ol>
-<li>配置CI/CD。在仓库根目录中新建一个名为<code>.gitlab-ci.yml</code>文件，Gitlab将会自动识别这个文件。</li>
-</ol>
-<p>这个文件包含了一些命令和CI配置，Gitlab会依据里面的内容进行操作，这里以我的配置为例：</p>
+<h3 id="Gitlab-Ci"><a href="#Gitlab-Ci" class="headerlink" title="Gitlab-Ci"></a>Gitlab-Ci</h3><p>Gitlab就是一个基于 Web 的 Git 仓库管理工具，从9.0版本开始提供持续集成功能（CI/CD），代码版本控制加上持续集成功能非常好用，下面具体讨论一下怎么做（假设已经配置好Gitlab）。</p>
+<h4 id="建一个仓库，我这里取名为test-auto-deploy"><a href="#建一个仓库，我这里取名为test-auto-deploy" class="headerlink" title="建一个仓库，我这里取名为test-auto-deploy"></a>建一个仓库，我这里取名为<code>test-auto-deploy</code></h4><h4 id="开启CI-CD功能，具体在setting-gt-General里的permissions中"><a href="#开启CI-CD功能，具体在setting-gt-General里的permissions中" class="headerlink" title="开启CI/CD功能，具体在setting -&gt; General里的permissions中"></a>开启CI/CD功能，具体在<code>setting -&gt; General</code>里的<code>permissions</code>中</h4><p><img src="/images/gitlab-ci-1.jpg" alt=""></p>
+<h4 id="配置CI-CD。在仓库根目录中新建一个名为-gitlab-ci-yml文件，Gitlab将会自动识别这个文件。"><a href="#配置CI-CD。在仓库根目录中新建一个名为-gitlab-ci-yml文件，Gitlab将会自动识别这个文件。" class="headerlink" title="配置CI/CD。在仓库根目录中新建一个名为.gitlab-ci.yml文件，Gitlab将会自动识别这个文件。"></a>配置CI/CD。在仓库根目录中新建一个名为<code>.gitlab-ci.yml</code>文件，Gitlab将会自动识别这个文件。</h4><p>这个文件包含了一些命令和CI配置，Gitlab会依据里面的内容进行操作，这里以我的配置为例：</p>
 <pre class=" language-yml"><code class="language-yml"># 语法详情可参考官方文档：http://code.hzmantu.com/help/ci/yaml/README
 # 设置环境
 image: node:8.9.1
@@ -538,11 +529,8 @@ master_deploy:
     - master
 </code></pre>
 <p>这个文件也是受版本控制的，也就意味着不同的功能分支能有不同的配置，进行不同的操作。</p>
-<ol>
-<li>配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的，也可以公用的，即：<code>Specific Runners</code> 和 <code>Shared Runners</code>。</li>
-</ol>
-<p>Runner的安装很简单，参考官方的教程即可: <a href="https://docs.gitlab.com/runner/install/" target="_blank" rel="noopener">Install GitLab Runner</a></p>
-<p>我这里选择使用公用的Runner:</p>
+<h4 id="配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的和可公用的，即：Specific-Runners-和-Shared-Runners。"><a href="#配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的和可公用的，即：Specific-Runners-和-Shared-Runners。" class="headerlink" title="配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的和可公用的，即：Specific Runners 和 Shared Runners。"></a>配置Runner，CI的操作是需要容器来执行的，也就是Runner。Runner分为项目私有的和可公用的，即：<code>Specific Runners</code> 和 <code>Shared Runners</code>。</h4><p>Runner的安装很简单，参考官方的教程即可: <a href="https://docs.gitlab.com/runner/install/" target="_blank" rel="noopener">Install GitLab Runner</a></p>
+<p>我这里选择使用同事配置好的公用的Runner:</p>
 <p><img src="/images/gitlab-ci-3.jpg" alt=""></p>
 <ol>
 <li>往<code>master</code>分支推送试试看！</li>
@@ -552,7 +540,7 @@ master_deploy:
 <p>还可以手动执行Job和查看Job执行详情</p>
 <p><img src="/images/gitlab-ci-5.jpg" alt=""></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>使用Gitlab提供的工具确实可以帮助我们提高效率，不必再自己撸一个环境。</p>
-<p>进行操作前最好进行理论知识的学习，例如：CDN部署、持续集成、GIT、服务器基本运用、Wepack、等等</p>
+<p>进行操作前最好进行理论知识的学习，例如：CDN部署、持续集成、GIT、服务器基本运用、Wepack、等等。</p>
 <p>这样就可以从重复的发布、打包中解脱出来啦，还能进行自动话测试、版本控制…</p>
 <p>棒！</p>
 
