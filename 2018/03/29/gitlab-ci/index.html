@@ -489,7 +489,7 @@
 <h3 id="Gitlab-Ci"><a href="#Gitlab-Ci" class="headerlink" title="Gitlab-Ci"></a>Gitlab-Ci</h3><p>Gitlab就是一个基于 Web 的 Git 仓库管理工具，从9.0版本开始提供持续集成功能（CI/CD），代码版本控制加上持续集成功能非常好用，下面具体讨论一下怎么做（假设已经配置好Gitlab）。</p>
 <h4 id="建一个仓库，我这里取名为test-auto-deploy"><a href="#建一个仓库，我这里取名为test-auto-deploy" class="headerlink" title="建一个仓库，我这里取名为test-auto-deploy"></a>建一个仓库，我这里取名为<code>test-auto-deploy</code></h4><h4 id="开启CI-CD功能，具体在setting-gt-General里的permissions中"><a href="#开启CI-CD功能，具体在setting-gt-General里的permissions中" class="headerlink" title="开启CI/CD功能，具体在setting -&gt; General里的permissions中"></a>开启CI/CD功能，具体在<code>setting -&gt; General</code>里的<code>permissions</code>中</h4><p><img src="/images/gitlab-ci-1.jpg" alt=""></p>
 <h4 id="配置CI-CD。在仓库根目录中新建一个名为-gitlab-ci-yml文件，Gitlab将会自动识别这个文件。"><a href="#配置CI-CD。在仓库根目录中新建一个名为-gitlab-ci-yml文件，Gitlab将会自动识别这个文件。" class="headerlink" title="配置CI/CD。在仓库根目录中新建一个名为.gitlab-ci.yml文件，Gitlab将会自动识别这个文件。"></a>配置CI/CD。在仓库根目录中新建一个名为<code>.gitlab-ci.yml</code>文件，Gitlab将会自动识别这个文件。</h4><p>这个文件包含了一些命令和CI配置，Gitlab会依据里面的内容进行操作，这里以我的配置为例：</p>
-<pre class=" language-yml"><code class="language-yml"># 语法详情可参考官方文档：http://code.hzmantu.com/help/ci/yaml/README
+<pre class=" language-yml"><code class="language-yml"># 语法详情可参考官方文档：https://docs.gitlab.com/ee/ci/yaml/README.html
 # 设置环境
 image: node:8.9.1
 # job执行前都要进行的操作
