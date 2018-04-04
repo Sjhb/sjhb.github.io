@@ -72,7 +72,7 @@
 
     
         <meta property="article:published_time" content="4月 02, 2018" />
-        <meta property="article:modified_time" content="4月 04, 2018" />
+        <meta property="article:modified_time" content="4月 05, 2018" />
     
 
     <!-- The Twitter Card protocol -->
@@ -113,7 +113,7 @@
     "headline": "使用Mocha测试(一)",
     "url": "http://yoursite.com/2018/04/02/test/index.html",
     "datePublished": "4月 02, 2018",
-    "dateModified": "4月 04, 2018",
+    "dateModified": "4月 05, 2018",
     "description": "前端不止是页面",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -614,16 +614,18 @@
 </blockquote>
 <h4 id="全局钩子"><a href="#全局钩子" class="headerlink" title="全局钩子"></a>全局钩子</h4><p>在任何一个测试文件中，只要在跟describe()作用域外声明的生命周期钩子，其作用域为全局的，它的回调函数会在所有的测试用例运行之前运行，无论（这个测试用例）处在哪个文件（这是因为Mocha有一个隐藏的describe()作用域，称为“根测试套件 root suite”）。</p>
 <h4 id="延迟的跟测试套件"><a href="#延迟的跟测试套件" class="headerlink" title="延迟的跟测试套件"></a>延迟的跟测试套件</h4><p>如果你需要在所有测试套件运行之前进行一些异步操作，你可以延迟根测试套件。以–delay参数运行，这会在全局注入一个特殊的回调函数run()：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 一些设置</span>
-
-  <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'我的测试套件'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// ...</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> assert <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'before test'</span><span class="token punctuation">)</span>
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'delay test'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'container'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     assert<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
+<p>运行命令：<code>mocha --delay</code></p>
 
     
 
