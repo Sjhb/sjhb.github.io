@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017/10 | 
+            react-transition体验 | 
         
         王欢的个人博客
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="王欢">
     <meta name="description" itemprop="description" content="前端不止是页面">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",react transition">
 
     <!-- Site Verification -->
     
@@ -65,15 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017/10 | 王欢的个人博客">
+    <meta property="og:title" content="react-transition体验 | 王欢的个人博客">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="前端不止是页面">
-    
+    <meta property="og:article:tag" content="react transition"> 
 
+    
+        <meta property="article:published_time" content="6月 18, 2018" />
+        <meta property="article:modified_time" content="6月 18, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017/10 | 王欢的个人博客">
+    <meta name="twitter:title" content="react-transition体验 | 王欢的个人博客">
     <meta name="twitter:description" content="前端不止是页面">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -81,13 +84,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/2017/10/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/06/18/react-transition/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "王欢的个人博客",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "王欢",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "前端不仅仅只是页面"
+    },
+    "headline": "react-transition体验",
+    "url": "http://yoursite.com/2018/06/18/react-transition/index.html",
+    "datePublished": "6月 18, 2018",
+    "dateModified": "6月 18, 2018",
+    "description": "前端不止是页面",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -275,96 +308,301 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单上手"><span class="post-toc-number">2.</span> <span class="post-toc-text">简单上手</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简单说明"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">简单说明</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编写小demo"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">编写小demo</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSSTransition"><span class="post-toc-number">3.</span> <span class="post-toc-text">CSSTransition</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TransitionGroup"><span class="post-toc-number">4.</span> <span class="post-toc-text">TransitionGroup</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/14/stylelint/">Stylelint规范</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            是什么
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/14/stylelint/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="王欢's avatar">
-            </div>
-            <div>
-                <strong>王欢</strong>
-                <span>10月 14, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                react-transition体验
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>王欢</strong>
+        <span>6月 18, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/react-transition/">react transition</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=react-transition体验&url=http://yoursite.com/2018/06/18/react-transition/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=react-transition体验&url=http://yoursite.com/2018/06/18/react-transition/index.html&via=王欢" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/18/react-transition/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/18/react-transition/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>React中，视图都是数据驱动的，以单向数据流的形式实现。而我们在很多应用场景中，都需要实现动画，实现稍微复杂的动画都需要操作DOM，这显然与React中的数据驱动背道而驰，所以操作DOM也基本是一条死路了。那有什么好的办法实现动画吗？答案就是：ReactCSSTransitionGroup。</p>
+<h3 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre class=" language-bash"><code class="language-bash">$ yarn add react-transition-group
+</code></pre>
+<p>或者</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> react-transition-group
+</code></pre>
+<h4 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h4><p><code>ReactCSSTransitionGroup</code>提供了三种不同类型的React组件供我们使用，这里使用<code>Transition</code>这个组件示例。</p>
+<p>实现要声明的非常重要的一点就是：<code>Transition</code>并不会改变React组件本身默认的行为，只会将状态信息，例如<code>entering</code>、<code>entered</code>,传递给子内容，具体怎么根据状态信息实现动画则由开发者自己决定</p>
+<p><code>Transition</code>有几个重要的属性，先简单列出来：</p>
+<ul>
+<li><code>children</code>: <code>Transition</code>组件子内容需要是函数而不是React组件，因为需要将当前的状态（’entering’, ‘entered’, ‘exiting’, ‘exited’, ‘unmounted’）传递给该函数，进而传递给子组件。例如：</li>
+</ul>
+<pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Transition</span> <span class="token attr-name">timeout</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">150</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">{</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyComponent</span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token string">`fade fade-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>status<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Transition</span><span class="token punctuation">></span></span>
+</code></pre>
+<ul>
+<li><code>in</code>: 用来触发状态改变，例如：<code>false</code>-》<code>true</code>,<code>Transition</code>的状态就会由<code>exited</code>-&gt;<code>entering</code>-&gt;<code>entered</code></li>
+<li><code>mountOnEnter</code>: 默认情况下，<code>Transition</code>组件挂载时，其子组件也会挂载，可以设置<code>mountOnEnter</code>为<code>true</code>，使其子组件在<code>in</code>设置为<code>true</code>时才被挂载，类似于懒加载的效果</li>
+<li><code>unmountOnExit</code>: 与<code>mountOnEnter</code>类似，当<code>Transition</code>组件状态为<code>exited</code>,子组件将会被卸载</li>
+<li><code>appear</code>: 正常情况下，<code>Transition</code>组件被挂载时，是不会有动画效果的，如果需要一开始挂载时就需要动画效果，可在<code>Transition</code>组件上声明<code>appear</code>属性为<code>true</code></li>
+<li><code>timeout</code>: 状态变化之间所需要的时间</li>
+<li><code>onEnter</code>、<code>onEntering</code>、<code>onEntered</code>、<code>onExit</code>、<code>onExiting</code>、<code>onExited</code>一些状态变化时的钩子</li>
+</ul>
+<h4 id="编写小demo"><a href="#编写小demo" class="headerlink" title="编写小demo"></a>编写小demo</h4><p>依据上面的说明，我简单写了一个小demo：根据状态的变化，渲染出来的方块会呈现不同的颜色</p>
+<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Transition <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-transition-group'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    show<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token function">componentDidMounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        show<span class="token punctuation">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> show <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Transition</span> <span class="token attr-name">in</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span> <span class="token attr-name">timeout</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">500</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+        <span class="token punctuation">{</span>state <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          <span class="token keyword">let</span> baseStyle <span class="token operator">=</span> <span class="token punctuation">{</span>
+              transition<span class="token punctuation">:</span> <span class="token string">'background .2s ease-out'</span><span class="token punctuation">,</span>
+              width<span class="token punctuation">:</span> <span class="token string">'100px'</span><span class="token punctuation">,</span>
+              height<span class="token punctuation">:</span> <span class="token string">'100px'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">;</span>
+          <span class="token keyword">switch</span> <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">case</span> <span class="token string">'exited'</span><span class="token punctuation">:</span>
+              baseStyle<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token string">'black'</span><span class="token punctuation">;</span>
+              <span class="token keyword">break</span><span class="token punctuation">;</span>
+              <span class="token keyword">case</span> <span class="token string">'entering'</span><span class="token punctuation">:</span>
+              baseStyle<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token string">'red'</span><span class="token punctuation">;</span>
+              <span class="token keyword">break</span><span class="token punctuation">;</span>
+              <span class="token keyword">case</span> <span class="token string">'entered'</span><span class="token punctuation">:</span>
+              baseStyle<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token string">'green'</span><span class="token punctuation">;</span>
+              <span class="token keyword">break</span><span class="token punctuation">;</span>
+              <span class="token keyword">case</span> <span class="token string">'exiting'</span><span class="token punctuation">:</span>
+              baseStyle<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
+              <span class="token keyword">break</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>baseStyle<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Transition</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Example</span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="CSSTransition"><a href="#CSSTransition" class="headerlink" title="CSSTransition"></a>CSSTransition</h3><p><code>CSSTransition</code>是受到了<code>ng-animate</code>启发。<code>CSSTransition</code>提供了三个状态：<code>appear</code>, <code>enter</code>, 和<code>exit</code>。使用时非常简单：当三个状态之间切换时，<code>CSSTransition</code>会修改子组件的<code>class</code>,使用预定义的类代替，例如：当<code>classNames=&quot;fade&quot;</code>时，依次会使用：<code>fade-enter</code>, <code>fade-enter-active</code>, <code>fade-enter-done</code>, <code>fade-exit</code>, <code>fade-exit-active</code>, <code>fade-exit-done</code>, <code>fade-appear</code>, 和<code>fade-appear-active</code></p>
+<h3 id="TransitionGroup"><a href="#TransitionGroup" class="headerlink" title="TransitionGroup"></a>TransitionGroup</h3><p><code>TransitionGroup</code>就如同状态机一样可以管理一组<code>Transition</code>或者<code>CSSTransition</code>组件。其内部的<code>Transition</code>或者<code>CSSTransition</code>组件会自动加上<code>in</code>属性，常见例子就是数组渲染。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/06/03/toast/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
