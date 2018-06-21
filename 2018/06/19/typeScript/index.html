@@ -12,7 +12,7 @@
     
     <title>
         
-            react学习笔记(四) | 
+            TypeScript学习笔记（一） | 
         
         王欢的个人博客
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="王欢">
     <meta name="description" itemprop="description" content="前端不止是页面">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",TypeScript">
 
     <!-- Site Verification -->
     
@@ -65,18 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="react学习笔记(四) | 王欢的个人博客">
+    <meta property="og:title" content="TypeScript学习笔记（一） | 王欢的个人博客">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="前端不止是页面">
-    
+    <meta property="og:article:tag" content="TypeScript"> 
 
     
-        <meta property="article:published_time" content="2月 03, 2018" />
-        <meta property="article:modified_time" content="2月 09, 2018" />
+        <meta property="article:published_time" content="6月 19, 2018" />
+        <meta property="article:modified_time" content="6月 22, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="react学习笔记(四) | 王欢的个人博客">
+    <meta name="twitter:title" content="TypeScript学习笔记（一） | 王欢的个人博客">
     <meta name="twitter:description" content="前端不止是页面">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,7 +84,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/02/03/react4/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/06/19/typeScript/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -110,10 +110,10 @@
         },
         "description": "前端不仅仅只是页面"
     },
-    "headline": "react学习笔记(四)",
-    "url": "http://yoursite.com/2018/02/03/react4/index.html",
-    "datePublished": "2月 03, 2018",
-    "dateModified": "2月 09, 2018",
+    "headline": "TypeScript学习笔记（一）",
+    "url": "http://yoursite.com/2018/06/19/typeScript/index.html",
+    "datePublished": "6月 19, 2018",
+    "dateModified": "6月 22, 2018",
     "description": "前端不止是页面",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -335,7 +335,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Refs"><span class="post-toc-number">1.</span> <span class="post-toc-text">Refs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#性能优化"><span class="post-toc-number">2.</span> <span class="post-toc-text">性能优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#shouldComponentUpdate"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">shouldComponentUpdate</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Portals"><span class="post-toc-number">3.</span> <span class="post-toc-text">Portals</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">简单介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单体验"><span class="post-toc-number">2.</span> <span class="post-toc-text">简单体验</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备文件"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">准备文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编译"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#增加注释类型注解"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">增加注释类型注解</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">基础类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#布尔值"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">布尔值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数字"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">数字</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">数组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#元组（Tuple）"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">元组（Tuple）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#枚举类型"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">枚举类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Any"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">Any</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Void"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">Void</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Null-和-Undefined"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">Null 和 Undefined</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Never"><span class="post-toc-number">3.10.</span> <span class="post-toc-text">Never</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类型断言"><span class="post-toc-number">3.11.</span> <span class="post-toc-text">类型断言</span></a></li></ol></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -373,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                react学习笔记(四)
+                TypeScript学习笔记（一）
             </p>
         </div>
 
@@ -392,7 +392,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>王欢</strong>
-        <span>2月 03, 2018</span>
+        <span>6月 19, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -416,7 +416,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/TypeScript/">TypeScript</a>
     </ul>
     
 
@@ -432,7 +432,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=react学习笔记(四)&url=http://yoursite.com/2018/02/03/react4/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=TypeScript学习笔记（一）&url=http://yoursite.com/2018/06/19/typeScript/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -441,7 +441,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=react学习笔记(四)&url=http://yoursite.com/2018/02/03/react4/index.html&via=王欢" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=TypeScript学习笔记（一）&url=http://yoursite.com/2018/06/19/typeScript/index.html&via=王欢" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/03/react4/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/19/typeScript/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/03/react4/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/19/typeScript/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -483,174 +483,149 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h3><p>在典型的React数据流中，父组件向子组件通信只能使用<code>Props</code>属性，当要修改子元素或者子组件时需要重新渲染它们，但是有些时候，我们确实需要获得子元素或者子组件的引用，来做一些事情，也就是<code>ref</code>。</p>
-<ol>
-<li>什么时候该使用<code>refs</code>呢</li>
-</ol>
+        <h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p><code>TypeScript</code>是有微软开发的一种开源的变成语言，它是JavasSript的一个严格超集，并添加了可选的静态类型和基于类的面向对象编程。</p>
+<p>使用<code>TypeScript</code>是一种趋势，使用<code>TypeScript</code>编写的代码，有较为严格的类型规范，它拓展了JavasSript的能力。</p>
+<h3 id="简单体验"><a href="#简单体验" class="headerlink" title="简单体验"></a>简单体验</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> -g typescript
+</code></pre>
+<p>或者</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> global add typescript
+</code></pre>
+<h4 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h4><p>使用<code>TypeScript</code>编写的代码，文件类型应当使用ts。新建一个<code>TypeScript</code>文件，命名为greeter.ts，内容如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> greeter <span class="token punctuation">(</span>person<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">'Hello,'</span> <span class="token operator">+</span> person<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token string">'Jhon'</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>innerHtml <span class="token operator">=</span> <span class="token function">greeter</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>然后使用命令<code>tsc</code>编译文件greeter.ts:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$tsc</span> greeter.ts
+</code></pre>
+<p>这个，在greeter.ts的同一层级下面应该会新加一个名为greeter.js的文件，打开来看会发现什么都没有改变。不着急，继续往下面走</p>
+<h4 id="增加注释类型注解"><a href="#增加注释类型注解" class="headerlink" title="增加注释类型注解"></a>增加注释类型注解</h4><p>变更greeter.ts，如下：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> greeter <span class="token punctuation">(</span>person<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">'Hello,'</span> <span class="token operator">+</span> person<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>innerHtml <span class="token operator">=</span> <span class="token function">greeter</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>再次运行上面的编译命令，就会发现报错了，提示：<code>Argument of type &#39;number[]&#39; is not assignable to parameter of type &#39;string&#39;.</code>.</p>
+<p>因为我们声明<code>greete</code>方法的参数应当是一个<code>string</code>类型的，而实际调用传递的一个数组，所以就会报错，虽然<code>greeter.js</code>仍然编译出来了，但是程序可能并不会按我们开始设定那样运行。</p>
+<h3 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h3><h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><p>与<code>JavasSript</code>一样，<code>TypeScript</code>里也叫做<code>boolean</code></p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> disabled<span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><p><code>JavaScript</code>和<code>TypeScript</code>中的数字都是浮点类型。在<code>TypeScript</code>中称之为<code>number</code>。 除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> decLiteral<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10 十进制</span>
+<span class="token keyword">let</span> hexLiteral<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">0x10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 16 十六进制 </span>
+<span class="token keyword">let</span> binaryLiteral<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">0b101</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5 二进制</span>
+<span class="token keyword">let</span> octalLiteral<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">0o11</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 9 八进制</span>
+</code></pre>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p><code>TypeScirpt</code>使用<code>string</code>表示字符串</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> name<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> <span class="token string">'Jhon'</span><span class="token punctuation">;</span>
+</code></pre>
+<p>当然，也可以使用模版字符串</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> name<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> <span class="token string">'Jhon'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> fullName<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Han </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p><code>JavaScript</code>中数组有两种定义方式：</p>
 <ul>
-<li>监听<code>focus</code>、文本选中、媒体播放等事件</li>
-<li>控制动画</li>
-<li>管理第三方库</li>
+<li>在元素类型后面接上<code>[]</code>，表示由此类型元素组成的一个数组：</li>
 </ul>
-<ol>
-<li>不要过度使用<code>refs</code>，虽然使用<code>refs</code>确实能带了很多便利，但是我们构建应用时还是应当以数据驱动的方式来构建项目。</li>
-<li>添加<code>ref</code>到Dom元素的方法，且看下面的例子，当点击focus按钮就会聚焦到输入框</li>
-</ol>
-<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">MyInput</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  handleFocus <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>textInput<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>input <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>textInput <span class="token operator">=</span> input<span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleFocus<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>focus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyInput</span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> arr<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
-<ol>
-<li>添加<code>ref</code>到React组件的方法，与添加到DOM元素的方法一致，对上面的例子稍作修改</li>
-</ol>
-<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">MyInput</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  handleFocus <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>textInput<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>input <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>textInput <span class="token operator">=</span> input<span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleFocus<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>focus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">AutoFocus</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  componentDidMount <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>textInputComponent<span class="token punctuation">.</span><span class="token function">handleFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyInput</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>input <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>textInputComponent <span class="token operator">=</span> input<span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AutoFocus</span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-</code></pre>
-<ol>
-<li>向父组件暴露子组件的引用，这里需要使用props来传递，在真正的dom元素上绑定来自父组件的props上即可。</li>
-</ol>
-<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><h4 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h4><p><code>shouldComponentUpdate</code>是React组件的一个生命周期函数，在组件渲染之前触发，默认返回TRUE，返回FALSE时不会更新组件。</p>
-<p>利用这个生命周期函数可以控制组件的渲染，避免不必要的资源开销，优化我们的组件见。</p>
-<p>下面例子中，只有userIputA值变化后才会更新组件</p>
-<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">InputPreview</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
-      userInputA<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
-      userInputB<span class="token punctuation">:</span> <span class="token string">''</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>handleInputA <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleInputA<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>handleInputB <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleInputB<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  handleInput <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      userInputA<span class="token punctuation">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  handleInputB <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      userInputB<span class="token punctuation">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  shouldComponentUpdate <span class="token punctuation">(</span>nextProps<span class="token punctuation">,</span> nextState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>nextState<span class="token punctuation">.</span>userInputA <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>userInputA<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token boolean">false</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span>
-  <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleInputA<span class="token punctuation">}</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>userInputA<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleInputB<span class="token punctuation">}</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>userInputB<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>userInputA<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>userInputB<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputPreview</span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-</code></pre>
-<h3 id="Portals"><a href="#Portals" class="headerlink" title="Portals"></a>Portals</h3><p>Portals 提供了一种很好的将子节点渲染到父组件以外的DOM节点的方式，基本用法：</p>
 <ul>
-<li>ReactDom.createPortal(child, container)</li>
+<li>使用数组泛型，<code>Array&lt;元素类型&gt;</code>：</li>
 </ul>
-<p>其中child是任何可渲染的React子元素，container则是一个DOM元素，</p>
-<p>简单例子：Modal虽然渲染在了其他元素下面，但是仍然会将事件冒泡到组件Parent</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>modal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> arr<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span><span class="token keyword">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">Modal</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> ReactDOM<span class="token punctuation">.</span><span class="token function">createPortal</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>children<span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"modal"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+<h4 id="元组（Tuple）"><a href="#元组（Tuple）" class="headerlink" title="元组（Tuple）"></a>元组（Tuple）</h4><p>元组类型表示一个已知元素数量和类型的数组，各个元素之间的类型可以不必相同。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> tuple<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">number</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+tuple <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'haha'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> a<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> tuple<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 正确</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> tuple<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 错误</span>
+</code></pre>
+<p>当访问越界的数组元素的时候，元素类型将为联合类型：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> tuple<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">number</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+tuple <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'haha'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+tuple<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'gg'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 正确，字符串可以赋值给(string | number)类型</span>
+tuple<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token regex">/test/</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 错误，正则不是（string | number)类型</span>
+</code></pre>
+<p>联合类型稍后再做讨论</p>
+<h4 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h4><p><code>enum</code>类型是对JavaScript标准数据类型的一个补充,使用枚举类型可以为一组数值赋予友好的名字。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Color <span class="token punctuation">{</span>Red <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> Green <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">,</span> Blue<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 枚举类型的值既可以是自动赋值，也可以手动赋值</span>
+<span class="token keyword">let</span> color<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> Color<span class="token punctuation">.</span>Green<span class="token punctuation">;</span>
+</code></pre>
+<p>编译出来就是</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> Color<span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>Color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Color<span class="token punctuation">[</span>Color<span class="token punctuation">[</span><span class="token string">"Red"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Red"</span><span class="token punctuation">;</span>
+    Color<span class="token punctuation">[</span>Color<span class="token punctuation">[</span><span class="token string">"Green"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Green"</span><span class="token punctuation">;</span>
+    Color<span class="token punctuation">[</span>Color<span class="token punctuation">[</span><span class="token string">"Blue"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Blue"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>Color <span class="token operator">||</span> <span class="token punctuation">(</span>Color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> color <span class="token operator">=</span> Color<span class="token punctuation">.</span>Green<span class="token punctuation">;</span>
+</code></pre>
+<p>从编译结果我们可以看出来，我们既可以根据枚举类型的名称得到值，也可以根据值得到具体的名称</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Color <span class="token punctuation">{</span>Red <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> Green <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">,</span> Blue<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> color<span class="token punctuation">:</span><span class="token keyword">number</span> <span class="token operator">=</span> Color<span class="token punctuation">.</span>Green<span class="token punctuation">;</span>
+<span class="token keyword">let</span> colorName<span class="token punctuation">:</span><span class="token keyword">string</span> <span class="token operator">=</span> Color<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>colorName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 运行结果</span>
+<span class="token comment" spellcheck="true">// 9</span>
+<span class="token comment" spellcheck="true">// Blue</span>
+</code></pre>
+<h4 id="Any"><a href="#Any" class="headerlink" title="Any"></a>Any</h4><p><code>Any</code>表示任意的一种类型，类型检查器对这些值不会进行检查而是直接让它们通过编译阶段的检查。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> x<span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token operator">=</span> <span class="token string">'may be string'</span>；
+x <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>Any</code>与<code>Object</code>比较：</p>
+<p><code>Object</code>类型的变量允许我们任意赋值给它，但是不能调用该变量上的任意方法，即使这个方法该变量确实有</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> x<span class="token punctuation">:</span> Object <span class="token operator">=</span> <span class="token string">'may be string'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 错误：Property 'substr' does not exist on type 'Object'.</span>
+
+<span class="token keyword">let</span> x<span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token operator">=</span> <span class="token string">'may be string'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 正确：运行结果：ay be</span>
+<span class="token keyword">let</span> c<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">true</span><span class="token punctuation">,</span> <span class="token operator">/</span>test<span class="token operator">/</span><span class="token punctuation">]</span>；
+</code></pre>
+<h4 id="Void"><a href="#Void" class="headerlink" title="Void"></a>Void</h4><p><code>Void</code>表示没有任何类型，注意，<code>Any</code>表示任何类型</p>
+<p>通常，当一个函数没有返回值的时候，其返回类型就会声明为<code>Void</code></p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> fun <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fun'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
-      door<span class="token punctuation">:</span> <span class="token string">'open'</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  handleButton <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>door <span class="token operator">===</span> <span class="token string">'open'</span> <span class="token operator">?</span> <span class="token string">'close'</span> <span class="token punctuation">:</span> <span class="token string">'open'</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>setState <span class="token punctuation">(</span><span class="token punctuation">{</span>
-      door<span class="token punctuation">:</span> x
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>door`s state<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>door<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Modal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleButton<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shift<span class="token punctuation">"</span>/</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Modal</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+</code></pre>
+<p>一个变量也可以声明为<code>Void</code>类型，但是一般没多大用，因为这个变量只能被赋予<code>null</code>或者<code>undefined</code></p>
+<h4 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h4><p>在<code>TypeScript</code>中，<code>null</code>和<code>undefined</code>的类型也是<code>null</code>和<code>undefined</code>， 和 void相似，它们的本身的类型用处不是很大。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> a<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> undefined <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+</code></pre>
+<p>可以把<code>null</code>和<code>undefined</code>赋值给其他类型的变量，例如<code>string</code>或者是<code>number</code></p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> a<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+</code></pre>
+<p>值得注意的是，官方并不推荐我们这么使用，因为这样使用会导致一些常见的问题，如果我们在编译命令上加入参数：<code>--strictNullChecks</code>,那么我们上面的代码就将会编译失败。因为这时，<code>null</code>和<code>undefined</code>只能赋值给void和它们各自。当然我们也可以使用联合类型：<code>string | number | null</code>。</p>
+<h4 id="Never"><a href="#Never" class="headerlink" title="Never"></a>Never</h4><p><code>Never</code>类型简而言之就是永远不存在的类型。例如永远会抛出异常的函数或者是内部有死循环而永远不会有返回的函数。变量也可以声明为<code>never</code>,当它们被永不为真的类型保护所约束时。</p>
+<p><code>never</code>类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是<code>never</code>的子类型或可以赋值给<code>never</code>类型（除了<code>never</code>本身之外）。 即使<code>any</code>也不可以赋值给<code>never</code>。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> a <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> never <span class="token punctuation">{</span>
+ <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Parent</span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h4><p><code>TypeScript</code>中，类型断言精髓就在于’更具体’,即我比<code>TypeScript</code>更了解某个值的详细信息。通过类型断言这种方式可以告诉编译器，“相信我，我知道自己在干什么”。 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。</p>
+<p>类型断言的两种方式：</p>
+<ul>
+<li>尖括号形式</li>
+</ul>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> a<span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span>a<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>as语法</li>
+</ul>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> a<span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a as <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 </code></pre>
 
     
@@ -671,21 +646,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/02/10/react5/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/01/28/react3/" id="post_nav-older" class="next-content">
+        <a href="/2018/06/18/react-transition/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
