@@ -12,7 +12,7 @@
     
     <title>
         
-            异步加载：Async/Await | 
+            浅谈Javascript中继承实现 | 
         
         王欢的个人博客
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="王欢">
     <meta name="description" itemprop="description" content="前端不止是页面">
-    <meta name="keywords" content=",web es7">
+    <meta name="keywords" content=",inherit">
 
     <!-- Site Verification -->
     
@@ -65,18 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="异步加载：Async/Await | 王欢的个人博客">
+    <meta property="og:title" content="浅谈Javascript中继承实现 | 王欢的个人博客">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="前端不止是页面">
-    <meta property="og:article:tag" content="web es7"> 
+    <meta property="og:article:tag" content="inherit"> 
 
     
-        <meta property="article:published_time" content="8月 20, 2017" />
-        <meta property="article:modified_time" content="1月 20, 2018" />
+        <meta property="article:published_time" content="10月 15, 2018" />
+        <meta property="article:modified_time" content="10月 16, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="异步加载：Async/Await | 王欢的个人博客">
+    <meta name="twitter:title" content="浅谈Javascript中继承实现 | 王欢的个人博客">
     <meta name="twitter:description" content="前端不止是页面">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,7 +84,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/08/20/await/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/10/15/inherit/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -110,10 +110,10 @@
         },
         "description": "前端不仅仅只是页面"
     },
-    "headline": "异步加载：Async/Await",
-    "url": "http://yoursite.com/2017/08/20/await/index.html",
-    "datePublished": "8月 20, 2017",
-    "dateModified": "1月 20, 2018",
+    "headline": "浅谈Javascript中继承实现",
+    "url": "http://yoursite.com/2018/10/15/inherit/index.html",
+    "datePublished": "10月 15, 2018",
+    "dateModified": "10月 16, 2018",
     "description": "前端不止是页面",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -335,7 +335,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise"><span class="post-toc-number">1.</span> <span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Async-Await"><span class="post-toc-number">2.</span> <span class="post-toc-text">Async/Await</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">3.</span> <span class="post-toc-text">实例</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么Javascript中使用的是原型继承？"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么Javascript中使用的是原型继承？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#es5中实现继承"><span class="post-toc-number">2.</span> <span class="post-toc-text">es5中实现继承</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#es6的class"><span class="post-toc-number">3.</span> <span class="post-toc-text">es6的class</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -373,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                异步加载：Async/Await
+                浅谈Javascript中继承实现
             </p>
         </div>
 
@@ -392,7 +392,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>王欢</strong>
-        <span>8月 20, 2017</span>
+        <span>10月 15, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -416,7 +416,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/web-es7/">web es7</a>
+        <a class="post_tag-link" href="/tags/inherit/">inherit</a>
     </ul>
     
 
@@ -432,7 +432,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=异步加载：Async/Await&url=http://yoursite.com/2017/08/20/await/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=浅谈Javascript中继承实现&url=http://yoursite.com/2018/10/15/inherit/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -441,7 +441,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=异步加载：Async/Await&url=http://yoursite.com/2017/08/20/await/index.html&via=王欢" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=浅谈Javascript中继承实现&url=http://yoursite.com/2018/10/15/inherit/index.html&via=王欢" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/20/await/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/15/inherit/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/20/await/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/15/inherit/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -483,102 +483,133 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>在Promise出现以前，Javascript实现异步编程的方式有两种：</p>
-<ul>
-<li>回调函数</li>
-<li>事件监听</li>
-</ul>
-<p>由于上面两种方式都有很大的局限性，CommonJS提出了Promise规范，并被纳入了es6。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 简单的Promise串联实例</span>
-<span class="token comment" spellcheck="true">// p1完成后会返回一个完成状态的Promise对象p2,然后被添加到新的Promise中</span>
-<span class="token keyword">let</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ···向后台请求中···
-  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'p1'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ···向后台请求中··
-  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'p2'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-p1<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-  <span class="token keyword">return</span> p2
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>Promise的链式调用解决了回调地狱的现象，更加清晰明了，但是仍然不够简单易用，在处理多个连续请求的时候会显得比较复杂，为了捕捉拒绝处理，会加上很多catch。</p>
-<h2 id="Async-Await"><a href="#Async-Await" class="headerlink" title="Async/Await"></a>Async/Await</h2><p>很多人称 Async/Await为非同步的终极解决方案，可见其强大。</p>
-<p>使用 Async/Await，我们可以像编写同步的代码来写异步代码！</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> getData <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetching</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+        <h3 id="为什么Javascript中使用的是原型继承？"><a href="#为什么Javascript中使用的是原型继承？" class="headerlink" title="为什么Javascript中使用的是原型继承？"></a>为什么Javascript中使用的是原型继承？</h3><p>继承的方式主要分为两种：原型继承和类继承，当然还有其它的一些，例如：抽象继承。首先弄清楚什么是原型继承，什么是类继承。</p>
+<p>在面向对象的程序设计中，一个普遍的说法继承是解决了代码复用的问题，当然使用不好也常常会产生高耦合的代码。个人认为继承也有表示一个对象的特性的功能，例如在JAVA的抽象继承中，一个方法可能只会接收实现了某个接口的实例。类继承和原型继承是实现继承的两种不同的方式。</p>
+<p>可以类比生活中的继承关系，老虎、狮子都属于猫科，猫科动物属于食肉动物，类继承会严谨地进行分类：先构造出基类（食肉动物），然后派生出子类（猫科动物），继续派生出子类（老虎类、狮子类），通过老虎类、狮子类就可以构造出很多狮子、老虎；原型继承中没有类的概念，为了描述狮子、老虎、猫科动物、食肉动物四者的关系，需要使用原型链的概念：需要为上面四个抽象概念声明构造函数，每个构造函数都有一个原型属性（prototype），原型属性描述了继承关系，例如狮子、老虎构造函数的原型都指向了由猫科动物这个构造函数示例化出来的对象。原型继承在具体语言实现起来更加灵活和简单。</p>
+<p>Javascript之所以使用原型继承，是因为Brendan Eich在设计Javascript这门语言之初就是希望简单点，只需要处理简单的浏览器端事件即可。而且当时正是面向对象编程最兴盛的时期。Javascript引入对象的概念，但是没有引入类的概念，为了实现继承才使用了原型的概念。</p>
+<h3 id="es5中实现继承"><a href="#es5中实现继承" class="headerlink" title="es5中实现继承"></a>es5中实现继承</h3><p>Javascript实现继承方式有很多种，下面简单几种：</p>
+<p>准备一个父级构造函数</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> Cats <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// Cats => 猫科动物</span>
+ <span class="token comment" spellcheck="true">// 属性</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 实例方法</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>walk <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">' is walking。'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 原型方法</span>
+Cats<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>eat <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">' is eating '</span> <span class="token operator">+</span> food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>当然也可以这么写</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetching</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<ol>
+<li>原型链继承, 这是一种比较简单的做法，但是也是极不推荐的做法，因为：来自原型对象的所有属性被所有实例共享、创建子类实例时，无法向父类构造函数传参</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> Tiger <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+Tiger<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Tiger<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'tiger'</span>
+
+<span class="token keyword">let</span> tiger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tiger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tiger<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// tiger</span>
+tiger<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// tiger is walking。</span>
+tiger<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'monkey'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// tiger is eating monkey</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">//true </span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">//true</span>
+</code></pre>
+<ol>
+<li>构造继承：使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  Cats<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'big cat'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Test Code</span>
+<span class="token keyword">var</span> tiger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tiger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tiger<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// big cat</span>
+tiger<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is walking</span>
+tiger<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'monkey'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// tiger.eat is not a function</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">// false</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+<p>这种方式可以实现多继承，但是缺点也是明显的：实例并不是父类的实例，只是子类的实例、只能继承父类的实例属性和方法，不能继承原型属性/方法、无法实现函数复用，每个子类都有父类实例函数的副本，影响性能。不推荐。</p>
+<ol>
+<li>实例继承: 为父类实例添加新特性，作为子类实例返回</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  instance<span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'big cat'</span>
+  <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Test Code</span>
+<span class="token keyword">var</span> tiger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tiger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tiger<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// big cat</span>
+tiger<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is walking。</span>
+tiger<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'monkey'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is eating monkey</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">// true</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// false</span>
+</code></pre>
+<p>这种做法的缺点是：实例是父类的实例，不是子类的实例、不支持多继承</p>
+<ol>
+<li>拷贝继承：</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> cats <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> p <span class="token keyword">in</span> cats<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Tiger<span class="token punctuation">.</span>prototype<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">=</span> cats<span class="token punctuation">[</span>p<span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
+  Tiger<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'big cat'</span>
 <span class="token punctuation">}</span>
-<span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Test Code</span>
+<span class="token keyword">var</span> tiger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tiger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tiger<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// big cat</span>
+tiger<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is walking。</span>
+tiger<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'monkey'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is eating monkey</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">// false</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
-<p>上面的代码意思是在声明getData这个方法的时候使用了async关键词，表名getData是一个异步的方法，同时在getData方法内部，通过await关键词表明，一定要等待fetching方法完成才能够进行后面的操作，这里是console.log(data)</p>
-<blockquote>
-<p>可以说async 函数就是 Generator 函数的语法糖。就是将 Generator 函数的星号（*）替换成 async，将 yield 替换成 await，仅此而已。</p>
-</blockquote>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>下面的例子很好的说明了async的好处</p>
-<blockquote>
-<p>以下代码在Node8.0中运行</p>
-</blockquote>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">let</span> readFile <span class="token operator">=</span> <span class="token punctuation">(</span>filename<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token punctuation">(</span>error<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">resolve</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<p>这种做法缺点是：效率较低，内存占用高（因为要拷贝父类的属性）、无法获取父类不可枚举的方法（不可枚举方法，不能使用for in 访问到）</p>
+<p>5、组合继承：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  Cats<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// Promise 连续读取两个方式读取文件</span>
-<span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'ted.txt'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">//Async方式读取连续两个文件文件</span>
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">readFileByAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> _test <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">)</span>
-    <span class="token keyword">let</span> _ted <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'ted.txt'</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_test<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_ted<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token function">readFileByAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Tiger<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Tiger<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> Cats<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Test Code</span>
+<span class="token keyword">var</span> tiger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tiger</span><span class="token punctuation">(</span><span class="token string">'big cat'</span><span class="token punctuation">)</span>
+tiger<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// big cat</span>
+tiger<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is walking。</span>
+tiger<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'monkey'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is eating monkey</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">// true</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
+<p>这种做法的缺点：调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了），优点也是明显的：弥补了方式2的缺陷，可以继承实例属性/方法，也可以继承原型属性/方法、既是子类的实例，也是父类的实例、不存在引用属性共享问题、可传参、函数可复用.</p>
+<ol>
+<li>寄生组合继承: 通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  Cats<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 创建一个没有实例方法的类</span>
+  <span class="token keyword">var</span> Super <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  Super<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Cats<span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//将实例作为子类的原型</span>
+  Tiger<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Tiger<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> Cats<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 需要修复下构造函数</span>
+
+<span class="token comment" spellcheck="true">// Test Code</span>
+<span class="token keyword">var</span> tiger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tiger</span><span class="token punctuation">(</span><span class="token string">'big cat'</span><span class="token punctuation">)</span>
+tiger<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// big cat'</span>
+tiger<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// big cat is walking。</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
+tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">//true</span>
+</code></pre>
+<p>这种做法没有什么副作用，但是实现起来比较复杂。</p>
+<h3 id="es6的class"><a href="#es6的class" class="headerlink" title="es6的class"></a>es6的class</h3><p>es6中引入了class类的概念，但是底层实现仍然是原型，所以大家都说class是一个语法糖。当我们声明一个class时，可以等同的认为声明了一个构造函数。</p>
 
     
 
@@ -598,21 +629,13 @@ p1<span class="token punctuation">.</span><span class="token function">then</spa
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/26/module/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/08/11/drag/" id="post_nav-older" class="next-content">
+        <a href="/2018/09/23/sort/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
