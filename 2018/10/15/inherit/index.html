@@ -502,9 +502,9 @@ Cats<span class="token punctuation">.</span>prototype<span class="token punctuat
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">' is eating '</span> <span class="token operator">+</span> food<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<ol>
+<ul>
 <li>原型链继承, 这是一种比较简单的做法，但是也是极不推荐的做法，因为：来自原型对象的所有属性被所有实例共享、创建子类实例时，无法向父类构造函数传参</li>
-</ol>
+</ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> Tiger <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 Tiger<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 Tiger<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'tiger'</span>
@@ -516,9 +516,9 @@ tiger<span class="token punctuation">.</span><span class="token function">eat</s
 tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">//true </span>
 tiger <span class="token keyword">instanceof</span> <span class="token class-name">Cats</span> <span class="token comment" spellcheck="true">//true</span>
 </code></pre>
-<ol>
+<ul>
 <li>构造继承：使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类</li>
-</ol>
+</ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
   Cats<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'big cat'</span>
@@ -533,9 +533,9 @@ tiger <span class="token keyword">instanceof</span> <span class="token class-nam
 tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
 <p>这种方式可以实现多继承，但是缺点也是明显的：实例并不是父类的实例，只是子类的实例、只能继承父类的实例属性和方法，不能继承原型属性/方法、无法实现函数复用，每个子类都有父类实例函数的副本，影响性能。不推荐。</p>
-<ol>
+<ul>
 <li>实例继承: 为父类实例添加新特性，作为子类实例返回</li>
-</ol>
+</ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">var</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   instance<span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'big cat'</span>
@@ -551,9 +551,9 @@ tiger <span class="token keyword">instanceof</span> <span class="token class-nam
 tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// false</span>
 </code></pre>
 <p>这种做法的缺点是：实例是父类的实例，不是子类的实例、不支持多继承</p>
-<ol>
+<ul>
 <li>拷贝继承：</li>
-</ol>
+</ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">var</span> cats <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cats</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> p <span class="token keyword">in</span> cats<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -571,7 +571,9 @@ tiger <span class="token keyword">instanceof</span> <span class="token class-nam
 tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
 <p>这种做法缺点是：效率较低，内存占用高（因为要拷贝父类的属性）、无法获取父类不可枚举的方法（不可枚举方法，不能使用for in 访问到）</p>
-<p>5、组合继承：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p>
+<ul>
+<li>组合继承：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</li>
+</ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
   Cats<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
@@ -586,9 +588,9 @@ tiger <span class="token keyword">instanceof</span> <span class="token class-nam
 tiger <span class="token keyword">instanceof</span> <span class="token class-name">Tiger</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
 <p>这种做法的缺点：调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了），优点也是明显的：弥补了方式2的缺陷，可以继承实例属性/方法，也可以继承原型属性/方法、既是子类的实例，也是父类的实例、不存在引用属性共享问题、可传参、函数可复用.</p>
-<ol>
+<ul>
 <li>寄生组合继承: 通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点</li>
-</ol>
+</ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Tiger</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
   Cats<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
