@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            node实现ftp相关操作 | 
+        
+        王欢的个人博客
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="王欢">
+    <meta name="description" itemprop="description" content="前端不止是页面">
+    <meta name="keywords" content=",socket ftp node">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="王欢的个人博客">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="node实现ftp相关操作 | 王欢的个人博客">
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:description" content="前端不止是页面">
+    <meta property="og:article:tag" content="socket ftp node"> 
+
+    
+        <meta property="article:published_time" content="12月 02, 2018" />
+        <meta property="article:modified_time" content="12月 03, 2018" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="node实现ftp相关操作 | 王欢的个人博客">
+    <meta name="twitter:description" content="前端不止是页面">
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/12/02/node-socket/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "王欢的个人博客",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "王欢",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "前端不仅仅只是页面"
+    },
+    "headline": "node实现ftp相关操作",
+    "url": "http://yoursite.com/2018/12/02/node-socket/index.html",
+    "datePublished": "12月 02, 2018",
+    "dateModified": "12月 03, 2018",
+    "description": "前端不止是页面",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    .footer-sns-facebook {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    }
+    
+    
+    .footer-sns-twitter {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-gplus {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是socket"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是socket</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node中的Net模块"><span class="post-toc-number">2.</span> <span class="post-toc-text">Node中的Net模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#利用Net模块ftp建立服务器并实现下载文件功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">利用Net模块ftp建立服务器并实现下载文件功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#知识准备"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">知识准备</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#具体实现"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">具体实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考信息"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全命令"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">全命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全状态码"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">全状态码</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                node实现ftp相关操作
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>王欢</strong>
+        <span>12月 02, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/socket-ftp-node/">socket ftp node</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=node实现ftp相关操作&url=http://yoursite.com/2018/12/02/node-socket/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=node实现ftp相关操作&url=http://yoursite.com/2018/12/02/node-socket/index.html&via=王欢" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/02/node-socket/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/02/node-socket/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>最近在看ftp相关内容，想着使用node实现一下</p>
+<h3 id="什么是socket"><a href="#什么是socket" class="headerlink" title="什么是socket"></a>什么是socket</h3><p>socket是对<code>TCP/IP</code>协议族的一种封装，是应用层与<code>TCP/IP</code>协议族通信的中间软件抽象层，也就是说，socket就是一组编程接口(API)。通过这些API我们可以实现网络间通信，也可以实现进程间通信。</p>
+<p>|Socket| 起源于 Unix ，Unix/Linux 基本哲学之一就是“一切皆文件”，都可以用“打开(open) –&gt; 读写(write/read) –&gt; 关闭(close)”模式来进行操作。因此 Socket 也被处理为一种特殊的文件。|</p>
+<h3 id="Node中的Net模块"><a href="#Node中的Net模块" class="headerlink" title="Node中的Net模块"></a>Node中的Net模块</h3><p>net模块提供了基于流的<code>TCP</code>或<code>IPC</code>服务器(net.createServer())和客户端(net.createConnection()) 的异步网络 API。这个模块下提供的两个类：<code>net.Server</code>和<code>net.Socket</code>，就是用来建立服务器和客户端所需要用到的。</p>
+<h3 id="利用Net模块ftp建立服务器并实现下载文件功能"><a href="#利用Net模块ftp建立服务器并实现下载文件功能" class="headerlink" title="利用Net模块ftp建立服务器并实现下载文件功能"></a>利用Net模块ftp建立服务器并实现下载文件功能</h3><h4 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h4><p>ftp（File Transfer Protocol）即<strong>文件传输协议</strong>，是用于在网络上进行文件传输的一套标准协议，使用客户/服务器模式，属于网络传输协议的应用层。</p>
+<p>FTP服务一般运行在20和21两个端口。端口20用于在客户端和服务器之间传输数据流，而端口21用于传输控制流，并且是命令通向ftp服务器的进口。当我们连接到ftp服务器的时候使用21端口进行登录操作，而下载和上传文件则是使用21端口。</p>
+<p>建立socket连接时，必须要提供地址和端口号，同时还需要用户名和登录密。另外ftp协议中有一种匿名模式：ftp服务器开启了匿名功能后，客户端在连接的时候只需要提供<code>anonymous</code>用户名即可登录，这个帐号不需要密码，虽然通常要求输入用户的邮件地址作为认证密码，但这只是一些细节或者此邮件地址根本不被确定。</p>
+<p>匿名服务绝大多数情况只允许现在文件，就算能允许上传文件那也只是上传到指定的文件夹。</p>
+<p>ftp命令：ftp客户端与服务端是通过特定格式进行通信的，当某客户端连接到FTP 服务器后，客户端发送指令：<code>&lt;指令&gt; [参数] &lt;命令结束符：&quot;\r\n&quot;&gt;</code>，服务会按以下格式返回：<code>&lt;状态码&gt; [参数或说明] &lt;命令结束符：&quot;\r\n&quot;&gt;</code>。常见命令附后。</p>
+<p>ftp状态码: 客户端请求服务器后返回的信息中带有状态码，客户端可以依据状态码执行操作。全状态码附后。</p>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><p><strong>本地建立ftp server</strong></p>
+<ul>
+<li>确定状态码数据：</li>
+</ul>
+<pre class=" language-json"><code class="language-json">// replyCode.json
+<span class="token punctuation">{</span>
+  <span class="token property">"110"</span><span class="token operator">:</span> <span class="token string">"Restart marker reply."</span><span class="token punctuation">,</span>
+  <span class="token property">"120"</span><span class="token operator">:</span> <span class="token string">"Service ready in nn minutes."</span><span class="token punctuation">,</span>
+  <span class="token property">"125"</span><span class="token operator">:</span> <span class="token string">"Data Connection already open; transfer starting."</span><span class="token punctuation">,</span>
+  <span class="token property">"150"</span><span class="token operator">:</span> <span class="token string">"File status okay; about to open data connection."</span><span class="token punctuation">,</span>
+  <span class="token property">"200"</span><span class="token operator">:</span> <span class="token string">"Command okay."</span><span class="token punctuation">,</span>
+  <span class="token property">"202"</span><span class="token operator">:</span> <span class="token string">"Command not implemented, superfluous at this site."</span><span class="token punctuation">,</span>
+  <span class="token property">"211"</span><span class="token operator">:</span> <span class="token string">"System status, or system help reply."</span><span class="token punctuation">,</span>
+  <span class="token property">"212"</span><span class="token operator">:</span> <span class="token string">"Directory status."</span><span class="token punctuation">,</span>
+  <span class="token property">"213"</span><span class="token operator">:</span> <span class="token string">"File status."</span><span class="token punctuation">,</span>
+  <span class="token property">"214"</span><span class="token operator">:</span> <span class="token string">"Help message."</span><span class="token punctuation">,</span>
+  <span class="token property">"215"</span><span class="token operator">:</span> <span class="token string">"NAME system type."</span><span class="token punctuation">,</span>
+  <span class="token property">"220"</span><span class="token operator">:</span> <span class="token string">"Service ready for new user."</span><span class="token punctuation">,</span>
+  <span class="token property">"221"</span><span class="token operator">:</span> <span class="token string">"Service closing control connection."</span><span class="token punctuation">,</span>
+  <span class="token property">"225"</span><span class="token operator">:</span> <span class="token string">"Data connection open; no transfer in progress."</span><span class="token punctuation">,</span>
+  <span class="token property">"226"</span><span class="token operator">:</span> <span class="token string">"Closing data connection."</span><span class="token punctuation">,</span>
+  <span class="token property">"227"</span><span class="token operator">:</span> <span class="token string">"Entering Passive Mode."</span><span class="token punctuation">,</span>
+  <span class="token property">"230"</span><span class="token operator">:</span> <span class="token string">"User logged in, proceed. This status code appears after the client sends the correct password. It indicates that the user has successfully logged on."</span><span class="token punctuation">,</span>
+  <span class="token property">"250"</span><span class="token operator">:</span> <span class="token string">"Requested file action okay, completed."</span><span class="token punctuation">,</span>
+  <span class="token property">"257"</span><span class="token operator">:</span> <span class="token string">"'\"'PATHNAME'\"' created."</span><span class="token punctuation">,</span>
+  <span class="token property">"331"</span><span class="token operator">:</span> <span class="token string">"User name okay, need password."</span><span class="token punctuation">,</span>
+  <span class="token property">"332"</span><span class="token operator">:</span> <span class="token string">"Need account for login."</span><span class="token punctuation">,</span>
+  <span class="token property">"350"</span><span class="token operator">:</span> <span class="token string">"Requested file action pending further information."</span><span class="token punctuation">,</span>
+  <span class="token property">"421"</span><span class="token operator">:</span> <span class="token string">"Error 421 Service not available, closing control connection.\n            Error 421 User limit reached\n            Error 421 You are not authorized to make the connection\n            Error 421 Max connections reached\n            Error 421 Max connections exceeded"</span><span class="token punctuation">,</span>
+  <span class="token property">"425"</span><span class="token operator">:</span> <span class="token string">"Cannot open data connection."</span><span class="token punctuation">,</span>
+  <span class="token property">"426"</span><span class="token operator">:</span> <span class="token string">"Connection closed; transfer aborted."</span><span class="token punctuation">,</span>
+  <span class="token property">"450"</span><span class="token operator">:</span> <span class="token string">"Requested file action not taken."</span><span class="token punctuation">,</span>
+  <span class="token property">"451"</span><span class="token operator">:</span> <span class="token string">"Requested action aborted: local error in processing."</span><span class="token punctuation">,</span>
+  <span class="token property">"452"</span><span class="token operator">:</span> <span class="token string">"Requested action not taken. Insufficient storage space in system."</span><span class="token punctuation">,</span>
+  <span class="token property">"500"</span><span class="token operator">:</span> <span class="token string">"Syntax error, command unrecognized, command line too long."</span><span class="token punctuation">,</span>
+  <span class="token property">"501"</span><span class="token operator">:</span> <span class="token string">"Syntax error in parameters or arguments."</span><span class="token punctuation">,</span>
+  <span class="token property">"502"</span><span class="token operator">:</span> <span class="token string">"Command not implemented."</span><span class="token punctuation">,</span>
+  <span class="token property">"503"</span><span class="token operator">:</span> <span class="token string">"Bad sequence of commands."</span><span class="token punctuation">,</span>
+  <span class="token property">"504"</span><span class="token operator">:</span> <span class="token string">"Command not implemented for that parameter."</span><span class="token punctuation">,</span>
+  <span class="token property">"530"</span><span class="token operator">:</span> <span class="token string">"User not logged in."</span><span class="token punctuation">,</span>
+  <span class="token property">"532"</span><span class="token operator">:</span> <span class="token string">"Need account for storing files."</span><span class="token punctuation">,</span>
+  <span class="token property">"550"</span><span class="token operator">:</span> <span class="token string">"Requested action not taken. File unavailable, not found, not accessible"</span><span class="token punctuation">,</span>
+  <span class="token property">"552"</span><span class="token operator">:</span> <span class="token string">"Requested file action aborted. Exceeded storage allocation."</span><span class="token punctuation">,</span>
+  <span class="token property">"553"</span><span class="token operator">:</span> <span class="token string">"Requested action not taken. File name not allowed."</span><span class="token punctuation">,</span>
+  <span class="token property">"10054"</span><span class="token operator">:</span> <span class="token string">"Connection reset by peer. The connection was forcibly closed by the remote host."</span><span class="token punctuation">,</span>
+  <span class="token property">"10060"</span><span class="token operator">:</span> <span class="token string">"Cannot connect to remote server."</span><span class="token punctuation">,</span>
+  <span class="token property">"10061"</span><span class="token operator">:</span> <span class="token string">"Cannot connect to remote server. The connection is actively refused by the server."</span><span class="token punctuation">,</span>
+  <span class="token property">"10066"</span><span class="token operator">:</span> <span class="token string">"Directory not empty."</span><span class="token punctuation">,</span>
+  <span class="token property">"10068"</span><span class="token operator">:</span> <span class="token string">"Too many users, server is full."</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>增加具体操作函数</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// opration.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  AUTH<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'502 SSL/TLS authentication not allowed.'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  USER<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>session<span class="token punctuation">.</span>username <span class="token operator">=</span> username
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'331 User name okay, need password.'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  PASS<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> socket    <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">let</span> username  <span class="token operator">=</span> socket<span class="token punctuation">.</span>username
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>username <span class="token operator">==</span> <span class="token string">'newghost'</span> <span class="token operator">&amp;&amp;</span> password <span class="token operator">==</span> <span class="token string">'dachun'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">,</span> <span class="token string">'Logged on'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token number">450</span><span class="token punctuation">,</span> <span class="token string">'Ensure that you typed the correct user name and password combination.'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  PWD<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'257 "/" is current directory'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  TYPE<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'200 Type set to I'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  EPSV<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'229 Entering Extended Passive Mode (|||30324|).'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  PASV<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'227 Entering Passive Mode (112,124,126,185,165,12).'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  MLSD<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'226 Successfully transferred "/"'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  LIST<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'502 Command not implemented.'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'502'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>主入口文件</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> REPLY_CODE <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./reply.json'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> operation <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./opration.js'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// index.js</span>
+<span class="token keyword">let</span> sendHandler <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> socket  <span class="token operator">=</span> <span class="token keyword">this</span>
+  <span class="token keyword">let</span> command
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>REPLY_CODE<span class="token punctuation">[</span>type<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      command <span class="token operator">=</span> REPLY_CODE<span class="token punctuation">[</span>type<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      command <span class="token operator">=</span> type<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    command <span class="token operator">=</span> type <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> message
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'S:'</span><span class="token punctuation">,</span> command<span class="token punctuation">)</span>
+  socket<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>command <span class="token operator">+</span> <span class="token string">'\r\n'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> ftpServer <span class="token operator">=</span> net<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  socket<span class="token punctuation">.</span>session  <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  socket<span class="token punctuation">.</span>send <span class="token operator">=</span> sendHandler
+
+  socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token string">'Welcome to OnceDoc FTP Server'</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">let</span> onCommand <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> buffers <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> lines   <span class="token operator">=</span> buffers<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'\r\n'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> l <span class="token operator">=</span> lines<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> l<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> line <span class="token operator">=</span> lines<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'C:'</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> cmds  <span class="token operator">=</span> line<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> cmd   <span class="token operator">=</span> cmds<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> arg   <span class="token operator">=</span> cmds<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> func  <span class="token operator">=</span> operation<span class="token punctuation">[</span>cmd<span class="token punctuation">]</span>
+
+        func <span class="token operator">?</span> func<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>socket<span class="token punctuation">,</span> arg<span class="token punctuation">)</span> <span class="token punctuation">:</span> socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token number">502</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> onCommand<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span>  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'timeout'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'timeout'</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// handle errors here</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+ftpServer<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token punctuation">{</span> port<span class="token punctuation">:</span> <span class="token number">21</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'opened server on'</span><span class="token punctuation">,</span> ftpServer<span class="token punctuation">.</span><span class="token function">address</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这时候，运行index.js文件，就可以启动一个server服务器</p>
+<p><strong>访问ftp server</strong></p>
+<p>编写一个简单测试脚本：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// client.js</span>
+<span class="token keyword">const</span> Net <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'net'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Net<span class="token punctuation">.</span>Socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> host <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span>
+<span class="token keyword">let</span> port <span class="token operator">=</span> <span class="token number">21</span>
+
+socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connect'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'已连接'</span><span class="token punctuation">)</span>
+  socket<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'USER anonymous \r\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'已断开'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'发生错误'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> buffer <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> str <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex">/331/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    socket<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'PWD anonymous@ \r\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+socket<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> host<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>运行上面代码将会得到如下结果</p>
+<pre class=" language-bash"><code class="language-bash">$ node client.js
+已连接
+220 Welcome to OnceDoc FTP Server
+
+331 User name okay, need password.
+
+257 <span class="token string">"/"</span> is current directory
+</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Node中的Net模块负责网络相关功能，它提供了TCP/IP协议族一整套的API，在上面中我们只是实现了FTP的登录功能，其它的文件下载、上传将在并没有实现。<code>net.Socket</code>类提供的各类API，我们不管是想实现<code>Webscoket</code>还是<code>Http</code>，只需对其二次封装即可。非常方便。</p>
+<h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><h4 id="全命令"><a href="#全命令" class="headerlink" title="全命令"></a>全命令</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ABOR</td>
+<td style="text-align:left">(ABORT)此命令使服务器终止前一个FTP服务命令以及任何相关数据传输。</td>
+</tr>
+<tr>
+<td style="text-align:left">ACCT</td>
+<td style="text-align:left">(ACCOUNT)此命令的参数部分使用一个Telnet字符串来指明用户的账户。</td>
+</tr>
+<tr>
+<td style="text-align:left">ADAT</td>
+<td style="text-align:left">(AUTHENTICATION/SECURITY DATA)认证/安全数据</td>
+</tr>
+<tr>
+<td style="text-align:left">ALLO</td>
+<td style="text-align:left">为接收一个文件分配足够的磁盘空间</td>
+</tr>
+<tr>
+<td style="text-align:left">APPE</td>
+<td style="text-align:left">增加</td>
+</tr>
+<tr>
+<td style="text-align:left">AUTH</td>
+<td style="text-align:left">认证/安全机制</td>
+</tr>
+<tr>
+<td style="text-align:left">CCC</td>
+<td style="text-align:left">清除命令通道</td>
+</tr>
+<tr>
+<td style="text-align:left">CDUP</td>
+<td style="text-align:left">改变到父目录</td>
+</tr>
+<tr>
+<td style="text-align:left">CONF</td>
+<td style="text-align:left">机密性保护命令</td>
+</tr>
+<tr>
+<td style="text-align:left">CWD</td>
+<td style="text-align:left">改变工作目录</td>
+</tr>
+<tr>
+<td style="text-align:left">DELE</td>
+<td style="text-align:left">删除文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ENC</td>
+<td style="text-align:left">隐私保护通道</td>
+</tr>
+<tr>
+<td style="text-align:left">EPRT</td>
+<td style="text-align:left">为服务器指定要连接的扩展地址和端口</td>
+</tr>
+<tr>
+<td style="text-align:left">EPSV</td>
+<td style="text-align:left">进入扩展被动模式</td>
+</tr>
+<tr>
+<td style="text-align:left">FEAT</td>
+<td style="text-align:left">获得服务器支持的特性列表</td>
+</tr>
+<tr>
+<td style="text-align:left">HELP</td>
+<td style="text-align:left">如果指定了命令，返回命令使用文档；否则返回一个通用帮助文档</td>
+</tr>
+<tr>
+<td style="text-align:left">LANG</td>
+<td style="text-align:left">语言协商</td>
+</tr>
+<tr>
+<td style="text-align:left">LIST</td>
+<td style="text-align:left">如果指定了文件或目录，返回其信息；否则返回当前工作目录的信息</td>
+</tr>
+<tr>
+<td style="text-align:left">LPRT</td>
+<td style="text-align:left">为服务器指定要连接的长地址和端口</td>
+</tr>
+<tr>
+<td style="text-align:left">LPSV</td>
+<td style="text-align:left">进入长被动模式</td>
+</tr>
+<tr>
+<td style="text-align:left">MDTM</td>
+<td style="text-align:left">返回指定文件的最后修改时间</td>
+</tr>
+<tr>
+<td style="text-align:left">MIC</td>
+<td style="text-align:left">完整性保护命令</td>
+</tr>
+<tr>
+<td style="text-align:left">MKD</td>
+<td style="text-align:left">创建目录</td>
+</tr>
+<tr>
+<td style="text-align:left">MLSD</td>
+<td style="text-align:left">如果目录被命名，列出目录的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">MLST</td>
+<td style="text-align:left">提供命令行指定的对象的数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MODE</td>
+<td style="text-align:left">设定传输模式（流、块或压缩）</td>
+</tr>
+<tr>
+<td style="text-align:left">NLST</td>
+<td style="text-align:left">返回指定目录的文件名列表</td>
+</tr>
+<tr>
+<td style="text-align:left">NOOP</td>
+<td style="text-align:left">无操作（哑包；通常用来保活）</td>
+</tr>
+<tr>
+<td style="text-align:left">OPTS</td>
+<td style="text-align:left">为特性选择选项</td>
+</tr>
+<tr>
+<td style="text-align:left">PASS</td>
+<td style="text-align:left">认证密码</td>
+</tr>
+<tr>
+<td style="text-align:left">PASV</td>
+<td style="text-align:left">进入被动模式</td>
+</tr>
+<tr>
+<td style="text-align:left">PBSZ</td>
+<td style="text-align:left">保护缓冲大小</td>
+</tr>
+<tr>
+<td style="text-align:left">PORT</td>
+<td style="text-align:left">指定服务器要连接的地址和端口</td>
+</tr>
+<tr>
+<td style="text-align:left">PROT</td>
+<td style="text-align:left">数据通道保护级别</td>
+</tr>
+<tr>
+<td style="text-align:left">PWD</td>
+<td style="text-align:left">打印工作目录，返回主机的当前目录</td>
+</tr>
+<tr>
+<td style="text-align:left">QUIT</td>
+<td style="text-align:left">断开连接</td>
+</tr>
+<tr>
+<td style="text-align:left">REIN</td>
+<td style="text-align:left">重新初始化连接</td>
+</tr>
+<tr>
+<td style="text-align:left">REST</td>
+<td style="text-align:left">从指定点重新开始传输</td>
+</tr>
+<tr>
+<td style="text-align:left">RETR</td>
+<td style="text-align:left">传输文件副本</td>
+</tr>
+<tr>
+<td style="text-align:left">RMD</td>
+<td style="text-align:left">删除目录</td>
+</tr>
+<tr>
+<td style="text-align:left">RNFR</td>
+<td style="text-align:left">从…重命名</td>
+</tr>
+<tr>
+<td style="text-align:left">RNTO</td>
+<td style="text-align:left">重命名到…</td>
+</tr>
+<tr>
+<td style="text-align:left">SITE</td>
+<td style="text-align:left">发送站点特殊命令到远端服务器</td>
+</tr>
+<tr>
+<td style="text-align:left">SIZE</td>
+<td style="text-align:left">返回文件大小</td>
+</tr>
+<tr>
+<td style="text-align:left">SMNT</td>
+<td style="text-align:left">挂载文件结构</td>
+</tr>
+<tr>
+<td style="text-align:left">STAT</td>
+<td style="text-align:left">返回当前状态</td>
+</tr>
+<tr>
+<td style="text-align:left">STOR</td>
+<td style="text-align:left">接收数据并且在服务器站点保存为文件</td>
+</tr>
+<tr>
+<td style="text-align:left">STOU</td>
+<td style="text-align:left">唯一地保存文件</td>
+</tr>
+<tr>
+<td style="text-align:left">STRU</td>
+<td style="text-align:left">设定文件传输结构</td>
+</tr>
+<tr>
+<td style="text-align:left">SYST</td>
+<td style="text-align:left">返回系统类型</td>
+</tr>
+<tr>
+<td style="text-align:left">TYPE</td>
+<td style="text-align:left">设定传输模式（ASCII/二进制).</td>
+</tr>
+<tr>
+<td style="text-align:left">USER</td>
+<td style="text-align:left">认证用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">XCUP</td>
+<td style="text-align:left">改变之当前工作目录的父目录</td>
+</tr>
+<tr>
+<td style="text-align:left">XMKD</td>
+<td style="text-align:left">创建目录</td>
+</tr>
+<tr>
+<td style="text-align:left">XPWD</td>
+<td style="text-align:left">打印当前工作目录</td>
+</tr>
+<tr>
+<td style="text-align:left">XRCP</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">XRMD</td>
+<td style="text-align:left">删除目录</td>
+</tr>
+<tr>
+<td style="text-align:left">XRSQ</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">XSEM</td>
+<td style="text-align:left">发送，否则邮件</td>
+</tr>
+<tr>
+<td style="text-align:left">XSEN</td>
+<td style="text-align:left">发送到终端</td>
+</tr>
+</tbody>
+</table>
+<h4 id="全状态码"><a href="#全状态码" class="headerlink" title="全状态码"></a>全状态码</h4><p>1xx - 肯定的初步答复<br>这些状态代码指示一项操作已经成功开始，但客户端希望在继续操作新命令前得到另一个答复。 • 110 重新启动标记答复。 </p>
+<ul>
+<li>120 服务已就绪，在 nnn 分钟后开始。 </li>
+<li>125 数据连接已打开，正在开始传输。 </li>
+<li>150 文件状态正常，准备打开数据连接。 </li>
+</ul>
+<p>2xx - 肯定的完成答复<br>一项操作已经成功完成。客户端可以执行新命令。 • 200 命令确定。 </p>
+<ul>
+<li>202 未执行命令，站点上的命令过多。 </li>
+<li>211 系统状态，或系统帮助答复。 </li>
+<li>212 目录状态。 </li>
+<li>213 文件状态。 </li>
+<li>214 帮助消息。 </li>
+<li>215 NAME 系统类型，其中，NAME 是 Assigned Numbers 文档中所列的正式系统名称。 </li>
+<li>220 服务就绪，可以执行新用户的请求。 </li>
+<li>221 服务关闭控制连接。如果适当，请注销。 </li>
+<li>225 数据连接打开，没有进行中的传输。 </li>
+<li>226 关闭数据连接。请求的文件操作已成功（例如，传输文件或放弃文件）。 </li>
+<li>227 进入被动模式 (h1,h2,h3,h4,p1,p2)。 </li>
+<li>230 用户已登录，继续进行。 </li>
+<li>250 请求的文件操作正确，已完成。 </li>
+<li>257 已创建“PATHNAME”。 </li>
+</ul>
+<p>3xx - 肯定的中间答复<br>该命令已成功，但服务器需要更多来自客户端的信息以完成对请求的处理。 • 331 用户名正确，需要密码。 </p>
+<ul>
+<li>332 需要登录帐户。 </li>
+<li>350 请求的文件操作正在等待进一步的信息。 </li>
+</ul>
+<p>4xx - 瞬态否定的完成答复<br>该命令不成功，但错误是暂时的。如果客户端重试命令，可能会执行成功。 • 421 服务不可用，正在关闭控制连接。如果服务确定它必须关闭，将向任何命令发送这一应答。 </p>
+<ul>
+<li>425 无法打开数据连接。 </li>
+<li>426 Connection closed; transfer aborted. </li>
+<li>450 未执行请求的文件操作。文件不可用（例如，文件繁忙）。 </li>
+<li>451 请求的操作异常终止：正在处理本地错误。 </li>
+<li>452 未执行请求的操作。系统存储空间不够。 </li>
+</ul>
+<p>5xx - 永久性否定的完成答复<br>该命令不成功，错误是永久性的。如果客户端重试命令，将再次出现同样的错误。 • 500 语法错误，命令无法识别。这可能包括诸如命令行太长之类的错误。 </p>
+<ul>
+<li>501 在参数中有语法错误。 </li>
+<li>502 未执行命令。 </li>
+<li>503 错误的命令序列。 </li>
+<li>504 未执行该参数的命令。 </li>
+<li>530 未登录。 </li>
+<li>532 存储文件需要帐户。 </li>
+<li>550 未执行请求的操作。文件不可用（例如，未找到文件，没有访问权限）。 </li>
+<li>551 请求的操作异常终止：未知的页面类型。 </li>
+<li>552 请求的文件操作异常终止：超出存储分配（对于当前目录或数据集）。 </li>
+<li>553 未执行请求的操作。不允许的文件名。<br>常见的 FTP 状态代码及其原因</li>
+<li>150 - FTP 使用两个端口：21 用于发送命令，20 用于发送数据。状态代码 150 表示服务器准备在端口 20 上打开新连接，发送一些数据。 </li>
+<li>226 - 命令在端口 20 上打开数据连接以执行操作，如传输文件。该操作成功完成，数据连接已关闭。 </li>
+<li>230 - 客户端发送正确的密码后，显示该状态代码。它表示用户已成功登录。 </li>
+<li>331 - 客户端发送用户名后，显示该状态代码。无论所提供的用户名是否为系统中的有效帐户，都将显示该状态代码。 </li>
+<li>426 - 命令打开数据连接以执行操作，但该操作已被取消，数据连接已关闭。 </li>
+<li>530 - 该状态代码表示用户无法登录，因为用户名和密码组合无效。如果使用某个用户帐户登录，可能键入错误的用户名或密码，也可能选择只允许匿名访问。如果使用匿名帐户登录，IIS 的配置可能拒绝匿名访问。 </li>
+<li>550 - 命令未被执行，因为指定的文件不可用。例如，要 GET 的文件并不存在，或试图将文件 PUT 到您没有写入权限的目录。</li>
+</ul>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/11/25/virtualDom/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="王欢's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>王欢的个人博客
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
+    });
+</script>
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
