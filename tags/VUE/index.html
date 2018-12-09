@@ -12,7 +12,7 @@
     
     <title>
         
-            兼容低版本微信的flexbox | 
+            标签: VUE | 
         
         王欢的个人博客
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="王欢">
     <meta name="description" itemprop="description" content="前端不止是页面">
-    <meta name="keywords" content=",web">
+    <meta name="keywords" content="">
 
     <!-- Site Verification -->
     
@@ -65,18 +65,15 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="兼容低版本微信的flexbox | 王欢的个人博客">
+    <meta property="og:title" content="标签: VUE | 王欢的个人博客">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="前端不止是页面">
-    <meta property="og:article:tag" content="web"> 
-
     
-        <meta property="article:published_time" content="7月 07, 2017" />
-        <meta property="article:modified_time" content="1月 20, 2018" />
+
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="兼容低版本微信的flexbox | 王欢的个人博客">
+    <meta name="twitter:title" content="标签: VUE | 王欢的个人博客">
     <meta name="twitter:description" content="前端不止是页面">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,43 +81,13 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/07/07/flex/index.html" />
+        <link rel="canonical" href="http://yoursite.com/tags/VUE/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "王欢的个人博客",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "王欢",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "前端不仅仅只是页面"
-    },
-    "headline": "兼容低版本微信的flexbox",
-    "url": "http://yoursite.com/2017/07/07/flex/index.html",
-    "datePublished": "7月 07, 2017",
-    "dateModified": "1月 20, 2018",
-    "description": "前端不止是页面",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://yoursite.com"
-    }
-}
-</script>
 
 
     
@@ -308,374 +275,96 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
-
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
+    <div class="locate-thumbnail-symbol"></div>
 
-    <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容低版本微信的flexbox"><span class="post-toc-number">1.</span> <span class="post-toc-text">兼容低版本微信的flexbox</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容写法"><span class="post-toc-number">2.</span> <span class="post-toc-text">兼容写法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#display"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">display</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主轴对齐方式"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">主轴对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素交叉对齐方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">子元素交叉对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素从左到右排列"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">子元素从左到右排列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素从右到左"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">子元素从右到左</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素从上倒下排列"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">子元素从上倒下排列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素从下到上排列"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">子元素从下到上排列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素伸缩"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">子元素伸缩</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子元素显示次序"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">子元素显示次序</span></a></li></ol></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
-    </ul>
+    <!-- Pin on top -->
     
 
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
+    <!-- Normal Post -->
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
         
     
-            <p class="article-headline-p">
-                兼容低版本微信的flexbox
-            </p>
-        </div>
 
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>王欢</strong>
-        <span>7月 07, 2017</span>
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2018/12/09/summary-20181209/">近期VUE相关心得（2018-12-09）</a></p>
     </div>
 
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/web/">web</a>
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=兼容低版本微信的flexbox&url=http://yoursite.com/2017/07/07/flex/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=兼容低版本微信的flexbox&url=http://yoursite.com/2017/07/07/flex/index.html&via=王欢" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/07/flex/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/07/flex/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <h2 id="兼容低版本微信的flexbox"><a href="#兼容低版本微信的flexbox" class="headerlink" title="兼容低版本微信的flexbox"></a>兼容低版本微信的flexbox</h2><blockquote>
-<p>对低版本的微信，安卓和ios兼容性良好</p>
-</blockquote>
-<p>旧flexbox: old flexbox<br>新flexbox: flexbox</p>
-<p>Destop</p>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>IE</th>
-<th>FireFox(Gecko)</th>
-<th>Opera</th>
-<th>Chrome</th>
-<th>Safari(WebKit)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>old flexbox</td>
-<td>–</td>
-<td>2-27(2-21:moz)</td>
-<td>–</td>
-<td>4-20(-webkit-)</td>
-<td>3.1-6(-webkit-)</td>
-</tr>
-<tr>
-<td>flexbox</td>
-<td>10+(10:-ms-)</td>
-<td>28+</td>
-<td>12.1</td>
-<td>20+(21-28:-webkit-)</td>
-<td>6.1+(6.1-8:webkit-)</td>
-</tr>
-</tbody>
-</table>
-<p>Mobile</p>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Android</th>
-<th>Firefox Mobile(Gecko)</th>
-<th>IE Phone</th>
-<th>Opera Mobile</th>
-<th>iOS Safari</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>old flexbox</td>
-<td>2.1-4.3(-webkit-)</td>
-<td>–</td>
-<td>–</td>
-<td>–</td>
-<td>3.2-6.1(-webkit-)</td>
-</tr>
-<tr>
-<td>flexbox</td>
-<td>4.4+</td>
-<td>54+</td>
-<td>54+</td>
-<td>12.1+</td>
-<td>7.1+(7.1-8.4:-webkit-)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="兼容写法"><a href="#兼容写法" class="headerlink" title="兼容写法"></a>兼容写法</h2><blockquote>
-<p>使用构建工具的时候利用autofixture可以自动生成兼容的写法</p>
-<p>旧版语法需要将行内子元素变成块元素</p>
-</blockquote>
-<h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><pre><code>.father {
-
-     display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
-    display: -moz-box; /* 老版本语法: Firefox (buggy) */
-    display: -ms-flexbox; /* 混合版本语法: IE 10 */
-    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
-    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */    
-}
-</code></pre><h3 id="主轴对齐方式"><a href="#主轴对齐方式" class="headerlink" title="主轴对齐方式"></a>主轴对齐方式</h3><blockquote>
-<p>old-flexbox 中space-around 不可用</p>
-</blockquote>
-<pre><code>.father{
-    box-pack: start | end | center | justify;
-    /*主轴对齐：左对齐（默认） | 右对齐 | 居中对齐 | 左右对齐*/
-
-    justify-content: flex-start | flex-end | center | space-between | space-around;
-    /*主轴对齐方式：左对齐（默认） | 右对齐 | 居中对齐 | 两端对齐 | 平均分布*/
-}
-</code></pre><h3 id="子元素交叉对齐方式"><a href="#子元素交叉对齐方式" class="headerlink" title="子元素交叉对齐方式"></a>子元素交叉对齐方式</h3><pre><code>.father{
-    box-align: start | end | center | baseline | stretch;
-    /*交叉轴对齐：顶部对齐（默认） | 底部对齐 | 居中对齐 | 文本基线对齐 | 上下对齐并铺满*/
-
-    align-items: flex-start | flex-end | center | baseline | stretch;
-    /*交叉轴对齐方式：顶部对齐（默认） | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 文本基线对齐*/
-}
-</code></pre><h3 id="子元素从左到右排列"><a href="#子元素从左到右排列" class="headerlink" title="子元素从左到右排列"></a>子元素从左到右排列</h3><pre><code>.father{
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -moz-flex-direction: row;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-}
-</code></pre><h3 id="子元素从右到左"><a href="#子元素从右到左" class="headerlink" title="子元素从右到左"></a>子元素从右到左</h3><pre><code>.father{
-    -webkit-box-pack: end;//子元素沿主轴末端排列
-    -webkit-box-direction: reverse;//子元素倒序排列
-    -webkit-box-orient: horizontal;
-    -moz-flex-direction: row-reverse;
-    -webkit-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-}
-</code></pre><h3 id="子元素从上倒下排列"><a href="#子元素从上倒下排列" class="headerlink" title="子元素从上倒下排列"></a>子元素从上倒下排列</h3><pre><code>.father{
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-}
-</code></pre><h3 id="子元素从下到上排列"><a href="#子元素从下到上排列" class="headerlink" title="子元素从下到上排列"></a>子元素从下到上排列</h3><pre><code>.father{
-    -webkit-box-pack: end;
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: vertical;
-    -moz-flex-direction: column-reverse;
-    -webkit-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-}
-</code></pre><h3 id="子元素伸缩"><a href="#子元素伸缩" class="headerlink" title="子元素伸缩"></a>子元素伸缩</h3><p>放大：</p>
-<pre><code>.item{
-    -webkit-box-flex: 1.0;
-    -moz-flex-grow: 1;
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
-    /*放大一倍，默认是不放大的*/
-}
-</code></pre><p>缩小：</p>
-<pre><code>.item{
-    -webkit-box-flex: 1.0;
-    -moz-flex-shrink: 1;
-    -webkit-flex-shrink: 1;
-    flex-shrink: 1;
-    /*缩小一倍，默认不缩小*/
-}
-</code></pre><h3 id="子元素显示次序"><a href="#子元素显示次序" class="headerlink" title="子元素显示次序"></a>子元素显示次序</h3><pre><code>.item{
-    -webkit-box-ordinal-group: 1;
-    -moz-order: 1;
-    -webkit-order: 1;
-    order: 1;
-}
-</code></pre>
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-                
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2018/12/09/summary-20181209/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="王欢's avatar">
             </div>
+            <div>
+                <strong>王欢</strong>
+                <span>12月 09, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                
+            </span>
 
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/2017/08/04/promise/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
+            
 
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
+            
 
-    <!-- Next Nav -->
-    
-        <a href="/2017/06/22/scrollWholeScreen/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
         </div>
     </div>
+</div>
 
+            
+            
+        
+    
+
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
 
 
                     
@@ -821,14 +510,6 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
 
                     
 
